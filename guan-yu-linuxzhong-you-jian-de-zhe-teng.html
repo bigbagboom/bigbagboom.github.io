@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://www.zeusinolympia.eu.org/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+<meta name="author" content="BBB" />
+<meta name="description" content="起因 作为一个拥有域名(免费的)的资(菜)深(鸟)网民，我自豪地租用了云vps(免费的)用于架站，也就是本站，以年均一到三篇的频 …" />
+<meta name="keywords" content="">
+
+
+<meta property="og:site_name" content="全是转载"/>
+<meta property="og:title" content="关于Linux中邮件的折腾"/>
+<meta property="og:description" content="起因 作为一个拥有域名(免费的)的资(菜)深(鸟)网民，我自豪地租用了云vps(免费的)用于架站，也就是本站，以年均一到三篇的频 …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.zeusinolympia.eu.org/guan-yu-linuxzhong-you-jian-de-zhe-teng.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2022-02-16 15:42:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.zeusinolympia.eu.org/author/bbb.html">
+<meta property="article:section" content="IT,Network"/>
+<meta property="og:image" content="">
+
+  <title>全是转载 &ndash; 关于Linux中邮件的折腾</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href="https://www.zeusinolympia.eu.org">
+        <img src="https://www.zeusinolympia.eu.org/theme/img/profile.png" alt="" title="">
+      </a>
+
+      <h1>
+        <a href="https://www.zeusinolympia.eu.org"></a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+
+
+            <li>
+              <a target="_self" href="https://github.com" >github</a>
+            </li>
+            <li>
+              <a target="_self" href="http://getpelican.com/" >Pelican</a>
+            </li>
+            <li>
+              <a target="_self" href="http://python.org/" >Python.org</a>
+            </li>
+            <li>
+              <a target="_self" href="http://jinja.pocoo.org/" >Jinja2</a>
+            </li>
+            <li>
+              <a target="_self" href="http://twitter.com/" >Twitter</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-You can add links in your config file" href="#" target="_blank">
+              <i class="fab fa-You can add links in your config file"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-Another social link" href="#" target="_blank">
+              <i class="fab fa-Another social link"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="guan-yu-linuxzhong-you-jian-de-zhe-teng">关于Linux中邮件的折腾</h1>
+    <p>
+      Posted on Wed 16 February 2022 in <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <h2>起因</h2>
+<p>作为一个拥有域名(免费的)的资(菜)深(鸟)网民，我自豪地租用了云vps(免费的)用于架站，也就是本站，以年均一到三篇的频率发布日志。我觉得这样也算是颇为佛系。然而，某一天我突然想到，域名虽然是网站的门牌，但它不是更该是邮件的标识么？这么多年来，我从没想过以这些属于我的域名作为邮件地址后缀，理由其实并不复杂。首先，我拥有很多免费邮箱，但用处并不大，现在已经很少需要用到个人邮箱与人交流。其次我的这些域名都是免费域名，现在属于我但未必永远属于我，从一开始我就有失去的心理准备，所以也就不会将它们和自己绑定的过于紧密。最后但并非最不重要的一点，在免费vps上设置自己域名的邮件服务也是有技术门槛的。</p>
+<p>然而最近，cloudflare的免费服务中新增了邮件路由功能，也就是说，你托管在cf上的域名可以通过设置邮件路由将发往你的域名后缀的邮箱转发到你指定的其他邮箱。但只能通过它收，不能通过它发。说实话我是觉得这个功能非常鸡肋，但我还是试着用了，然后作为强迫症中期，就觉得既然我能收这个地址的邮件但不能以这个邮箱地址发邮件这显然不对啊。</p>
+<p>于是问题就来了。我这个架站的vps因为是免费的，也因为它位于欧洲，还因为它只支持ipv6，所以访问它相当累人。在上面架web站已经折腾过一次了，我实在不想为了邮件再折腾它一回。因为那意味着要装软件，要配置，安装过程可能各种意外中断，搞不好就把现在还能服务的web搞挂了，要真那样，就太得不偿失了。</p>
+<p>一个可行的折腾方案是直接在自己的电脑上先试。</p>
+<h2>过程</h2>
+<p>最先想到的就是通过那些免费的webmail服务的smtp来发邮件，当然马上就发现是不行的。也许时间往上推20多年是可能的，但这些年垃圾邮件越来越猖狂，邮件服务商最基本的要求就是防止有人乱发邮件。你不付钱把你的域名托给邮件服务商代管理，你就不可能用他们的smtp服务器发你自己域名的邮件。</p>
+<p>那自己架一个smtp服务器呢？对于使用动态ip的家庭用户来说，有可能做到，但别指望它能稳定工作。由于我平时使用linux，所以我搜了一下，决定使用最多人用的exim4来发邮件。</p>
+<p>exim4的安装和配置都还算方便，装完之后我成功地使用mail这个命令在terminal环境里发出了邮件，但是......</p>
+<p>几个我至今无法解决的问题。</p>
+<ol>
+<li>我发出的邮件会被认为是垃圾邮件(Spam)，因为我的域名和被CF托管的DNS中注册的不一致，属于不可信的，因此虽然别人能收到，但通常都会在他的垃圾邮件箱里。</li>
+<li>为了做试验，我曾经手工停掉了exim4的服务，但我发现用mail命令照样发出了邮件，查exim4的日志也能看到，说明mail工作的时候会直接调用exim4，哪怕作为后台服务已经被停掉了。</li>
+<li>我只能用mail在命令行发纯文本的邮件。我不知道该怎么设置邮件图形客户端使得它能像命令行的mail那样替我把邮件发出去，最好是HTML格式的，能图文并茂，能附加附件。但是我不能，我就找不到一个不需要设置smtp就能发邮件的邮件客户端。</li>
+</ol>
+<h2>结尾</h2>
+<p>我还会继续试验下去，直到我把前面的那几个问题解决掉。或者就这样，反正邮件并不是必须的，对么？</p>
+<p>就先到这里。</p>
+<p>后续更新：</p>
+<p>之后我又在其它vps上尝试了一回，这回失败得更彻底，但原因也更简单，就是服务商不给你收发邮件。看来邮件服务现在不算是个受欢迎的东西，至少不像Web服务那样成为vps服务的标配。要使用邮件服务是有门槛的，想悄悄设立一个无成本的邮件服务应该是不太可能的了。</p>
+<p><a href="/">回主页</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 全是转载 ",
+  "url" : "https://www.zeusinolympia.eu.org",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>

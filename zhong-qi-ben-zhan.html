@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://www.zeusinolympia.eu.org/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+<meta name="author" content="BBB" />
+<meta name="description" content="今天重新弄这个网站时，我特意看了一下，上一篇技术转贴还是去年5月的，是关于Markdown的。 写Blog的热情（对于本站而言，主要是技术文章搬运 …" />
+<meta name="keywords" content="">
+
+
+<meta property="og:site_name" content="全是转载"/>
+<meta property="og:title" content="重启本站"/>
+<meta property="og:description" content="今天重新弄这个网站时，我特意看了一下，上一篇技术转贴还是去年5月的，是关于Markdown的。 写Blog的热情（对于本站而言，主要是技术文章搬运 …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.zeusinolympia.eu.org/zhong-qi-ben-zhan.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2020-10-27 14:30:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.zeusinolympia.eu.org/author/bbb.html">
+<meta property="article:section" content="web"/>
+<meta property="og:image" content="">
+
+  <title>全是转载 &ndash; 重启本站</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href="https://www.zeusinolympia.eu.org">
+        <img src="https://www.zeusinolympia.eu.org/theme/img/profile.png" alt="" title="">
+      </a>
+
+      <h1>
+        <a href="https://www.zeusinolympia.eu.org"></a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+
+
+            <li>
+              <a target="_self" href="https://github.com" >github</a>
+            </li>
+            <li>
+              <a target="_self" href="http://getpelican.com/" >Pelican</a>
+            </li>
+            <li>
+              <a target="_self" href="http://python.org/" >Python.org</a>
+            </li>
+            <li>
+              <a target="_self" href="http://jinja.pocoo.org/" >Jinja2</a>
+            </li>
+            <li>
+              <a target="_self" href="http://twitter.com/" >Twitter</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-You can add links in your config file" href="#" target="_blank">
+              <i class="fab fa-You can add links in your config file"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-Another social link" href="#" target="_blank">
+              <i class="fab fa-Another social link"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="zhong-qi-ben-zhan">重启本站</h1>
+    <p>
+      Posted on Tue 27 October 2020 in <a href="https://www.zeusinolympia.eu.org/category/web.html">web</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>今天重新弄这个网站时，我特意看了一下，上一篇技术转贴还是去年5月的，是关于Markdown的。</p>
+<p>写Blog的热情（对于本站而言，主要是技术文章搬运和抄），总是循环着从热情开始，到无声无息的结束，已经记不清最早的Blog是存放在哪个站上的了，msn，blogger，wordpress都曾经开始过，然后，就没有然后了。直到我使用自己家里的电脑架设了本站。</p>
+<p>使用家庭电脑和家庭宽带架站有很多问题。首先是技术上的：家用宽带没有固定IP，需要使用技术手段在IP变化时去更新DNS，动态域名可以简化这个步骤，但对于自己申请的域名，要想自动跟踪IP变化并更新DNS，就很麻烦。不是不能做，而是需要很多不算简单的编程工作，所以，我也就没那么干。我选择了DDNS，写了个程序定时观察，当IP变化了就邮件通知，然后再人工更新固定域名解析，这确实是一个比较麻烦的方案。第二个问题则是政策上的：在国内，家庭宽带其实是不允许建站的，宽带运营商甚至把80/8080等端口都给你封掉了，要自己架站的话只能用其它端口。非要用80/443端口并非完全没办法，但需要借助不少外部软硬件的帮助，也是非常的麻烦。当然，即使技术上没有封锁你，私自架站被发现也还是会被通知下线的。在中国，建网站受到严格管控，要有各种备案号，然后要自我审查，等等等等，总之就是非常麻烦。最后，在家里建站意味着电脑需要24小时开机，虽然现在很多人家里使用NAS/路由器作为24小时开机的准系统可以解决这个问题。</p>
+<p>所以在我偶然申请了一台VPS后，突然发现可以不用在家里的电脑上而是用VPS来干这件本就应该由VPS干的事就很顺理成章了。感谢免费域名+免费SSL证书+自由软件+cloudflare+vps提供商们各种完善的技术方案，这个网站才得以正式重启。虽然不知道此地的下一篇会在何时继续，但现在，让我们期待未来！</p>
+<p>以下为使用到的部分服务：</p>
+<p><a href="https://cloudflare.com">cloudflare</a></p>
+<p><a href="https://certbot.eff.org/">certbot</a></p>
+<p>已经很难申请成功的<a href="https://www.freenom.com/">freenom</a></p>
+<p><a href="/">回主页</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 全是转载 ",
+  "url" : "https://www.zeusinolympia.eu.org",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>

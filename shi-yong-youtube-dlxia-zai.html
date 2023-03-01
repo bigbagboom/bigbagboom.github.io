@@ -1,0 +1,170 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://www.zeusinolympia.eu.org/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+<meta name="author" content="BBB" />
+<meta name="description" content="安装就不说了，用brew可以直接装。简单的几个用法： 代理 --proxy 下载youtube目前肯定需要代理，如果是socks5，可以这么写 youtube-dl --proxy socks5://127.0.0.1:1080/ 后接其他参数。 查看视频所有 …" />
+<meta name="keywords" content="">
+
+
+<meta property="og:site_name" content="全是转载"/>
+<meta property="og:title" content="使用youtube-dl下载"/>
+<meta property="og:description" content="安装就不说了，用brew可以直接装。简单的几个用法： 代理 --proxy 下载youtube目前肯定需要代理，如果是socks5，可以这么写 youtube-dl --proxy socks5://127.0.0.1:1080/ 后接其他参数。 查看视频所有 …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.zeusinolympia.eu.org/shi-yong-youtube-dlxia-zai.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2018-11-30 21:33:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.zeusinolympia.eu.org/author/bbb.html">
+<meta property="article:section" content="web"/>
+<meta property="og:image" content="">
+
+  <title>全是转载 &ndash; 使用youtube-dl下载</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href="https://www.zeusinolympia.eu.org">
+        <img src="https://www.zeusinolympia.eu.org/theme/img/profile.png" alt="" title="">
+      </a>
+
+      <h1>
+        <a href="https://www.zeusinolympia.eu.org"></a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+
+
+            <li>
+              <a target="_self" href="https://github.com" >github</a>
+            </li>
+            <li>
+              <a target="_self" href="http://getpelican.com/" >Pelican</a>
+            </li>
+            <li>
+              <a target="_self" href="http://python.org/" >Python.org</a>
+            </li>
+            <li>
+              <a target="_self" href="http://jinja.pocoo.org/" >Jinja2</a>
+            </li>
+            <li>
+              <a target="_self" href="http://twitter.com/" >Twitter</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-You can add links in your config file" href="#" target="_blank">
+              <i class="fab fa-You can add links in your config file"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-Another social link" href="#" target="_blank">
+              <i class="fab fa-Another social link"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="shi-yong-youtube-dlxia-zai">使用youtube-dl下载</h1>
+    <p>
+      Posted on Fri 30 November 2018 in <a href="https://www.zeusinolympia.eu.org/category/web.html">web</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>安装就不说了，用brew可以直接装。简单的几个用法：</p>
+<ol>
+<li>代理 --proxy </li>
+</ol>
+<p>下载youtube目前肯定需要代理，如果是socks5，可以这么写 </p>
+<p>youtube-dl --proxy socks5://127.0.0.1:1080/ 后接其他参数。</p>
+<ol>
+<li>查看视频所有类型,只看不下载</li>
+</ol>
+<p>youtube-dl -F [url]</p>
+<p>这会列出同个视频的不同格式，第一列是格式码，后面会用到。通常我使用 137+140</p>
+<ol>
+<li>下载指定质量的视频和音频并自动合并</li>
+</ol>
+<p>youtube-dl -f [format code] [url]</p>
+<p>比如：</p>
+<p>youtube-dl --proxy socks5://127.0.0.1:1080/  -f 137+140  https://www.youtube.com/watch?v=zEJ30fjuPp4&amp;list=PLU48DxDIXHqMoeRuk8S4ZsdtcMm7h1V3C&amp;index=5</p>
+<p>详细文章可以看看<a href="https://www.jianshu.com/p/8817a7b0c8d6">这里</a>。</p>
+<p><a href="/">回主页</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 全是转载 ",
+  "url" : "https://www.zeusinolympia.eu.org",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>

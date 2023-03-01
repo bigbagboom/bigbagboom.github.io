@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/stylesheet/style.min.css">
+
+
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+          href="https://www.zeusinolympia.eu.org/theme/pygments/github.min.css">
+
+
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="https://www.zeusinolympia.eu.org/theme/font-awesome/css/solid.css">
+
+
+
+
+
+
+
+<meta name="author" content="BBB" />
+<meta name="description" content="Update: 2020-10-27 此文已无效，所以做这种事情是会被抓的，可恶的百度！:( 这是个必须在这里记上一笔的神器，以下文字基本是从该软件 …" />
+<meta name="keywords" content="">
+
+
+<meta property="og:site_name" content="全是转载"/>
+<meta property="og:title" content="BaiduPCS-Go 百度网盘客户端"/>
+<meta property="og:description" content="Update: 2020-10-27 此文已无效，所以做这种事情是会被抓的，可恶的百度！:( 这是个必须在这里记上一笔的神器，以下文字基本是从该软件 …"/>
+<meta property="og:locale" content="en_US"/>
+<meta property="og:url" content="https://www.zeusinolympia.eu.org/baidupcs-go-bai-du-wang-pan-ke-hu-duan.html"/>
+<meta property="og:type" content="article"/>
+<meta property="article:published_time" content="2019-02-07 22:59:00+08:00"/>
+<meta property="article:modified_time" content=""/>
+<meta property="article:author" content="https://www.zeusinolympia.eu.org/author/bbb.html">
+<meta property="article:section" content="web"/>
+<meta property="og:image" content="">
+
+  <title>全是转载 &ndash; BaiduPCS-Go 百度网盘客户端</title>
+
+</head>
+<body class="light-theme">
+  <aside>
+    <div>
+      <a href="https://www.zeusinolympia.eu.org">
+        <img src="https://www.zeusinolympia.eu.org/theme/img/profile.png" alt="" title="">
+      </a>
+
+      <h1>
+        <a href="https://www.zeusinolympia.eu.org"></a>
+      </h1>
+
+
+
+      <nav>
+        <ul class="list">
+
+
+
+            <li>
+              <a target="_self" href="https://github.com" >github</a>
+            </li>
+            <li>
+              <a target="_self" href="http://getpelican.com/" >Pelican</a>
+            </li>
+            <li>
+              <a target="_self" href="http://python.org/" >Python.org</a>
+            </li>
+            <li>
+              <a target="_self" href="http://jinja.pocoo.org/" >Jinja2</a>
+            </li>
+            <li>
+              <a target="_self" href="http://twitter.com/" >Twitter</a>
+            </li>
+        </ul>
+      </nav>
+
+      <ul class="social">
+          <li>
+            <a  class="sc-You can add links in your config file" href="#" target="_blank">
+              <i class="fab fa-You can add links in your config file"></i>
+            </a>
+          </li>
+          <li>
+            <a  class="sc-Another social link" href="#" target="_blank">
+              <i class="fab fa-Another social link"></i>
+            </a>
+          </li>
+      </ul>
+    </div>
+
+  </aside>
+  <main>
+
+
+<article class="single">
+  <header>
+      
+    <h1 id="baidupcs-go-bai-du-wang-pan-ke-hu-duan">BaiduPCS-Go 百度网盘客户端</h1>
+    <p>
+      Posted on Thu 07 February 2019 in <a href="https://www.zeusinolympia.eu.org/category/web.html">web</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Update: 2020-10-27 此文已无效，所以做这种事情是会被抓的，可恶的百度！:(</p>
+<hr>
+<p>这是个必须在这里记上一笔的神器，以下文字基本是从该软件的README搬过来的。</p>
+<h1>BaiduPCS-Go 百度网盘客户端</h1>
+<p><a href="https://ci.appveyor.com/project/iikira/baidupcs-go"><img alt="Build status" src="https://ci.appveyor.com/api/projects/status/nhx92nqyrfq9su7y?svg=true"></a>
+<a href="https://godoc.org/github.com/iikira/BaiduPCS-Go"><img alt="GoDoc" src="https://godoc.org/github.com/iikira/BaiduPCS-Go?status.svg"></a></p>
+<p>仿 Linux shell 文件处理命令的百度网盘命令行客户端.</p>
+<p>This project was largely inspired by <a href="https://github.com/GangZhuo/BaiduPCS">GangZhuo/BaiduPCS</a></p>
+<h2>解决错误代码4, No permission to do this operation</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="o">-</span><span class="n">appid</span><span class="w"> </span><span class="mi">266719</span>
+</code></pre></div>
+
+<p>详见讨论 <a href="https://github.com/iikira/BaiduPCS-Go/issues/387">#387</a></p>
+<h2>注意</h2>
+<p>此文档只针对于最新的commit, 可能不适用于已发布的最新版本.</p>
+<!-- toc -->
+<h2>目录</h2>
+<ul>
+<li><a href="#特色">特色</a></li>
+<li><a href="#编译交叉编译-说明">编译/交叉编译 说明</a></li>
+<li><a href="#下载运行-说明">下载/运行 说明</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#linux--macos">Linux / macOS</a></li>
+<li><a href="#android--ios">Android / iOS</a></li>
+<li><a href="#命令列表及说明">命令列表及说明</a></li>
+<li><a href="#注意---">注意 ! ! !</a></li>
+<li><a href="#检测程序更新">检测程序更新</a></li>
+<li><a href="#登录百度帐号">登录百度帐号</a></li>
+<li><a href="#列出帐号列表">列出帐号列表</a></li>
+<li><a href="#获取当前帐号">获取当前帐号</a></li>
+<li><a href="#切换百度帐号">切换百度帐号</a></li>
+<li><a href="#退出百度帐号">退出百度帐号</a></li>
+<li><a href="#获取网盘配额">获取网盘配额</a></li>
+<li><a href="#切换工作目录">切换工作目录</a></li>
+<li><a href="#输出工作目录">输出工作目录</a></li>
+<li><a href="#列出目录">列出目录</a></li>
+<li><a href="#列出目录树形图">列出目录树形图</a></li>
+<li><a href="#获取文件目录的元信息">获取文件/目录的元信息</a></li>
+<li><a href="#搜索文件">搜索文件</a></li>
+<li><a href="#下载文件目录">下载文件/目录</a></li>
+<li><a href="#上传文件目录">上传文件/目录</a></li>
+<li><a href="#获取下载直链">获取下载直链</a></li>
+<li><a href="#手动秒传文件">手动秒传文件</a></li>
+<li><a href="#修复文件MD5">修复文件MD5</a></li>
+<li><a href="#获取本地文件的秒传信息">获取本地文件的秒传信息</a></li>
+<li><a href="#导出文件目录">导出文件/目录</a></li>
+<li><a href="#创建目录">创建目录</a></li>
+<li><a href="#删除文件目录">删除文件/目录</a></li>
+<li><a href="#拷贝文件目录">拷贝文件/目录</a></li>
+<li><a href="#移动重命名文件目录">移动/重命名文件/目录</a></li>
+<li><a href="#分享文件目录">分享文件/目录</a><ul>
+<li><a href="#设置分享文件目录">设置分享文件/目录</a></li>
+<li><a href="#列出已分享文件目录">列出已分享文件/目录</a></li>
+<li><a href="#取消分享文件目录">取消分享文件/目录</a></li>
+</ul>
+</li>
+<li><a href="#离线下载">离线下载</a><ul>
+<li><a href="#添加离线下载任务">添加离线下载任务</a></li>
+<li><a href="#精确查询离线下载任务">精确查询离线下载任务</a></li>
+<li><a href="#查询离线下载任务列表">查询离线下载任务列表</a></li>
+<li><a href="#取消离线下载任务">取消离线下载任务</a></li>
+<li><a href="#删除离线下载任务">删除离线下载任务</a></li>
+</ul>
+</li>
+<li><a href="#回收站">回收站</a><ul>
+<li><a href="#列出回收站文件列表">列出回收站文件列表</a></li>
+<li><a href="#还原回收站文件或目录">还原回收站文件或目录</a></li>
+<li><a href="#删除回收站文件或目录清空回收站">删除回收站文件或目录/清空回收站</a></li>
+</ul>
+</li>
+<li><a href="#显示和修改程序配置项">显示和修改程序配置项</a></li>
+<li><a href="#测试通配符">测试通配符</a></li>
+<li><a href="#工具箱">工具箱</a></li>
+<li><a href="#初级使用教程">初级使用教程</a></li>
+<li><a href="#1-查看程序使用说明">1. 查看程序使用说明</a></li>
+<li><a href="#2-登录百度帐号-必做">2. 登录百度帐号 (必做)</a></li>
+<li><a href="#3-切换网盘工作目录">3. 切换网盘工作目录</a></li>
+<li><a href="#4-网盘内列出文件和目录">4. 网盘内列出文件和目录</a></li>
+<li><a href="#5-下载文件">5. 下载文件</a></li>
+<li><a href="#6-设置下载最大并发量">6. 设置下载最大并发量</a></li>
+<li><a href="#7-退出程序">7. 退出程序</a></li>
+<li><a href="#常见问题">常见问题</a></li>
+<li><a href="#todo">TODO</a></li>
+<li><a href="#交流反馈">交流反馈</a></li>
+<li><a href="#捐助">捐助</a></li>
+</ul>
+<!-- tocstop -->
+
+<h1>特色</h1>
+<p>多平台支持, 支持 Windows, macOS, linux, 移动设备等.</p>
+<p>百度帐号多用户支持;</p>
+<p>通配符匹配网盘路径和 Tab 自动补齐命令和路径, <a href="https://baike.baidu.com/item/通配符">通配符_百度百科</a>;</p>
+<p><a href="#下载文件目录">下载</a>网盘内文件, 支持多个文件或目录下载, 支持断点续传和单文件并行下载;</p>
+<p><a href="#上传文件目录">上传</a>本地文件, 支持上传大文件(&gt;2GB), 支持多个文件或目录上传;</p>
+<p><a href="#离线下载">离线下载</a>, 支持http/https/ftp/电驴/磁力链协议.</p>
+<h1>编译/交叉编译 说明</h1>
+<p>参见 <a href="https://github.com/iikira/BaiduPCS-Go/wiki/编译-交叉编译帮助">编译/交叉编译帮助</a></p>
+<h1>下载/运行 说明</h1>
+<p>Go语言程序, 可直接在<a href="https://github.com/iikira/BaiduPCS-Go/releases">发布页</a>下载使用.</p>
+<p>如果程序运行时输出乱码, 请检查下终端的编码方式是否为 <code>UTF-8</code>.</p>
+<p>使用本程序之前, 建议学习一些 linux 基础知识 和 基础命令.</p>
+<p>如果未带任何参数运行程序, 程序将会进入仿Linux shell系统用户界面的cli交互模式, 可直接运行相关命令.</p>
+<p>cli交互模式下, 光标所在行的前缀应为 <code>BaiduPCS-Go &gt;</code>, 如果登录了百度帐号则格式为 <code>BaiduPCS-Go:&lt;工作目录&gt; &lt;百度ID&gt;$</code></p>
+<p>程序会提供相关命令的使用说明.</p>
+<h2>Windows</h2>
+<p>程序应在 命令提示符 (Command Prompt) 或 PowerShell 中运行, 在 mintty (例如: GitBash) 可能会有显示问题.</p>
+<p>也可直接双击程序运行, 具体使用方法请参见 <a href="#命令列表及说明">命令列表及说明</a> 和 <a href="#初级使用教程">初级使用教程</a>.</p>
+<h2>Linux / macOS</h2>
+<p>程序应在 终端 (Terminal) 运行.</p>
+<p>具体使用方法请参见 <a href="#命令列表及说明">命令列表及说明</a> 和 <a href="#初级使用教程">初级使用教程</a>.</p>
+<h2>Android / iOS</h2>
+<blockquote>
+<p>Android / iOS 移动设备操作比较麻烦, 不建议在移动设备上使用本程序.</p>
+</blockquote>
+<p>安卓, 建议使用 <a href="https://termux.com">Termux</a> 或 <a href="https://github.com/NeoTerm/NeoTerm">NeoTerm</a> 或 终端模拟器, 以提供终端环境.</p>
+<p>示例: <a href="https://github.com/iikira/BaiduPCS-Go/wiki/Android-运行本项目程序参考示例">Android 运行本项目程序参考示例</a>, 有兴趣的可以参考一下.</p>
+<p>苹果iOS, 需要越狱, 在 Cydia 搜索下载并安装 MobileTerminal, 或者其他提供终端环境的软件.</p>
+<p>示例: <a href="https://github.com/iikira/BaiduPCS-Go/wiki/iOS-运行本项目程序参考示例">iOS 运行本项目程序参考示例</a>, 有兴趣的可以参考一下.</p>
+<p>具体使用方法请参见 <a href="#命令列表及说明">命令列表及说明</a> 和 <a href="#初级使用教程">初级使用教程</a>.</p>
+<h1>命令列表及说明</h1>
+<h2>注意 ! ! !</h2>
+<p>命令的前缀 <code>BaiduPCS-Go</code> 为指向程序运行的全路径名 (ARGv 的第一个参数)</p>
+<p>直接运行程序时, 未带任何其他参数, 则程序进入cli交互模式, 运行以下命令时, 要把命令的前缀 <code>BaiduPCS-Go</code> 去掉!</p>
+<p>cli交互模式已支持按tab键自动补全命令和路径.</p>
+<h2>检测程序更新</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">update</span>
+</code></pre></div>
+
+<h2>登录百度帐号</h2>
+<h3>常规登录百度帐号</h3>
+<p>支持在线验证绑定的手机号或邮箱,</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">login</span>
+</code></pre></div>
+
+<h3>使用百度 BDUSS 来登录百度帐号</h3>
+<p><a href="https://github.com/iikira/BaiduPCS-Go/wiki/关于-获取百度-BDUSS">关于 获取百度 BDUSS</a></p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="o">-</span><span class="n">bduss</span><span class="o">=&lt;</span><span class="n">BDUSS</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">login</span><span class="w"> </span><span class="o">-</span><span class="n">bduss</span><span class="o">=</span><span class="mi">1234567</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">login</span>
+<span class="n">请输入百度用户名</span><span class="p">(</span><span class="n">手机号</span><span class="o">/</span><span class="n">邮箱</span><span class="o">/</span><span class="n">用户名</span><span class="p">),</span><span class="w"> </span><span class="n">回车键提交</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1234567</span>
+</code></pre></div>
+
+<h2>列出帐号列表</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">loglist</span>
+</code></pre></div>
+
+<p>列出所有已登录的百度帐号</p>
+<h2>获取当前帐号</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">who</span>
+</code></pre></div>
+
+<h2>切换百度帐号</h2>
+<p>切换已登录的百度帐号</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">su</span><span class="w"> </span><span class="o">&lt;</span><span class="n">uid</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">su</span>
+
+<span class="n">请输入要切换帐号的</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">值</span><span class="w"> </span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h2>退出百度帐号</h2>
+<p>退出当前登录的百度帐号</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">logout</span>
+</code></pre></div>
+
+<p>程序会进一步确认退出帐号, 防止误操作.</p>
+<h2>获取网盘配额</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">quota</span>
+</code></pre></div>
+
+<p>获取网盘的总储存空间, 和已使用的储存空间</p>
+<h2>切换工作目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h3>切换工作目录后自动列出工作目录下的文件和目录</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">切换</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="w"> </span><span class="n">工作目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">切换</span><span class="w"> </span><span class="n">上级目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">..</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">切换</span><span class="w"> </span><span class="n">根目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">切换</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="w"> </span><span class="n">工作目录</span><span class="p">,</span><span class="w"> </span><span class="n">并自动列出</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="w"> </span><span class="n">下的文件和目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">我的资源</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">使用通配符</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="o">/</span><span class="n">我的</span><span class="o">*</span>
+</code></pre></div>
+
+<h2>输出工作目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">pwd</span>
+</code></pre></div>
+
+<h2>列出目录</h2>
+<p>列出当前工作目录的文件和目录或指定目录</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h3>可选参数</h3>
+<div class="highlight"><pre><span></span><code>-asc: 升序排序
+-desc: 降序排序
+-time: 根据时间排序
+-name: 根据文件名排序
+-size: 根据大小排序
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">列出</span><span class="w"> </span><span class="n">我的资源</span><span class="w"> </span><span class="n">内的文件和目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="n">我的资源</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">绝对路径</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">降序排序</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="k">desc</span><span class="w"> </span><span class="n">我的资源</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">按文件大小降序排序</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">-</span><span class="k">size</span><span class="w"> </span><span class="o">-</span><span class="k">desc</span><span class="w"> </span><span class="n">我的资源</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">使用通配符</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">ls</span><span class="w"> </span><span class="o">/</span><span class="n">我的</span><span class="o">*</span>
+</code></pre></div>
+
+<h2>列出目录树形图</h2>
+<p>列出当前工作目录的文件和目录或指定目录的树形图</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">tree</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目录</span><span class="o">&gt;</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">默认获取工作目录元信息</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">tree</span>
+</code></pre></div>
+
+<h2>获取文件/目录的元信息</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">默认获取工作目录元信息</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">meta</span>
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="n">我的资源</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">meta</span><span class="w"> </span><span class="o">/</span>
+</code></pre></div>
+
+<h2>搜索文件</h2>
+<p>按文件名搜索文件（不支持查找目录）。</p>
+<p>默认在当前工作目录搜索.</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="o">[</span><span class="n">-path=&lt;需要检索的目录&gt;</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">-r</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">关键字</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">搜索根目录的文件</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="o">-</span><span class="k">path</span><span class="o">=/</span><span class="w"> </span><span class="n">关键字</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">搜索当前工作目录的文件</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="n">关键字</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">递归搜索当前工作目录的文件</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">search</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="n">关键字</span>
+</code></pre></div>
+
+<h2>下载文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">download</span><span class="w"> </span><span class="o">&lt;</span><span class="err">网盘文件或目录的路径</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件或目录</span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件或目录</span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">&lt;</span><span class="err">网盘文件或目录的路径</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件或目录</span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件或目录</span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span>
+</code></pre></div>
+
+<h3>可选参数</h3>
+<div class="highlight"><pre><span></span><code>  --test          测试下载, 此操作不会保存文件到本地
+  --ow            overwrite, 覆盖已存在的文件
+  --status        输出所有线程的工作状态
+  --save          将下载的文件直接保存到当前工作目录
+  --saveto value  将下载的文件直接保存到指定的目录
+  -x              为文件加上执行权限, (windows系统无效)
+  --share         以分享文件的方式获取下载链接来下载
+  --locate        以获取直链的方式来下载
+  -p value        指定下载线程数
+</code></pre></div>
+
+<p>支持多个文件或目录的下载.</p>
+<p>下载的文件默认保存到 <strong>程序所在目录</strong> 的 download/ 目录, 支持设置指定目录, 重名的文件会自动跳过!</p>
+<p><a href="https://github.com/iikira/BaiduPCS-Go/wiki/%E5%85%B3%E4%BA%8E%E4%B8%8B%E8%BD%BD%E7%9A%84%E7%AE%80%E5%8D%95%E8%AF%B4%E6%98%8E">关于下载的简单说明</a></p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 设置保存目录, 保存到 D:\Downloads</span>
+<span class="c1"># 注意区别反斜杠 &quot;\&quot; 和 斜杠 &quot;/&quot; !!!</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">-</span><span class="n">savedir</span><span class="w"> </span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">Downloads</span>
+
+<span class="c1"># 下载 /我的资源/1.mp4</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">/</span><span class="err">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span>
+
+<span class="c1"># 下载 /我的资源 整个目录!!</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">/</span><span class="err">我的资源</span>
+
+<span class="c1"># 下载网盘内的全部文件!!</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">/</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">*</span>
+</code></pre></div>
+
+<h2>上传文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="o">&lt;</span><span class="err">本地文件</span><span class="o">/</span><span class="err">目录的路径</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="o">&lt;</span><span class="err">目标目录</span><span class="o">&gt;</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">u</span><span class="w"> </span><span class="o">&lt;</span><span class="err">本地文件</span><span class="o">/</span><span class="err">目录的路径</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="o">&lt;</span><span class="err">目标目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p>上传默认采用分片上传的方式, 上传的文件将会保存到, &lt;目标目录&gt;.</p>
+</li>
+<li>
+<p>遇到同名文件将会自动覆盖!!</p>
+</li>
+<li>
+<p>当上传的文件名和网盘的目录名称相同时, 不会覆盖目录, 防止丢失数据.</p>
+</li>
+</ul>
+<h4>注意:</h4>
+<ul>
+<li>分片上传之后, 服务器可能会记录到错误的文件md5, 可使用 fixmd5 命令尝试修复文件的MD5值, 修复md5不一定能成功, 但文件的完整性是没问题的.</li>
+</ul>
+<p>fixmd5 命令使用方法:</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">fixmd5</span><span class="w"> </span><span class="o">-</span><span class="n">h</span>
+</code></pre></div>
+
+<ul>
+<li>
+<p>禁用分片上传可以保证服务器记录到正确的md5.</p>
+</li>
+<li>
+<p>禁用分片上传时只能使用单线程上传, 指定的单个文件上传最大线程数将会无效.</p>
+</li>
+</ul>
+<h4>例子:</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 将本地的 C:\Users\Administrator\Desktop\1.mp4 上传到网盘 /视频 目录</span>
+<span class="c1"># 注意区别反斜杠 &quot;\&quot; 和 斜杠 &quot;/&quot; !!!</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Administrator</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span><span class="err">视频</span>
+
+<span class="c1"># 将本地的 C:\Users\Administrator\Desktop\1.mp4 和 C:\Users\Administrator\Desktop\2.mp4 上传到网盘 /视频 目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Administrator</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Administrator</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="mf">2.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span><span class="err">视频</span>
+
+<span class="c1"># 将本地的 C:\Users\Administrator\Desktop 整个目录上传到网盘 /视频 目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">upload</span><span class="w"> </span><span class="n">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Administrator</span><span class="o">/</span><span class="n">Desktop</span><span class="w"> </span><span class="o">/</span><span class="err">视频</span>
+</code></pre></div>
+
+<h2>获取下载直链</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">locate</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件2</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<h4>注意</h4>
+<p>若该功能无法正常使用, 提示<code>user is not authorized, hitcode:101</code>, 尝试更换 User-Agent 为 <code>netdisk;8.3.1;android-android</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="o">-</span><span class="n">user_agent</span><span class="w"> </span><span class="ss">&quot;netdisk;8.3.1;android-android&quot;</span>
+</code></pre></div>
+
+<h2>手动秒传文件</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">rapidupload</span><span class="w"> </span><span class="o">-</span><span class="n">length</span><span class="o">=&lt;</span><span class="err">文件的大小</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">md5</span><span class="o">=&lt;</span><span class="err">文件的</span><span class="n">md5值</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">slicemd5</span><span class="o">=&lt;</span><span class="err">文件前</span><span class="mi">256</span><span class="n">KB切片的md5值</span><span class="p">(</span><span class="err">可选</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">crc32</span><span class="o">=&lt;</span><span class="err">文件的</span><span class="n">crc32值</span><span class="p">(</span><span class="err">可选</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">保存的网盘路径</span><span class="p">,</span><span class="w"> </span><span class="err">需包含文件名</span><span class="o">&gt;</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">ru</span><span class="w"> </span><span class="o">-</span><span class="n">length</span><span class="o">=&lt;</span><span class="err">文件的大小</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">md5</span><span class="o">=&lt;</span><span class="err">文件的</span><span class="n">md5值</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">slicemd5</span><span class="o">=&lt;</span><span class="err">文件前</span><span class="mi">256</span><span class="n">KB切片的md5值</span><span class="p">(</span><span class="err">可选</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">-</span><span class="n">crc32</span><span class="o">=&lt;</span><span class="err">文件的</span><span class="n">crc32值</span><span class="p">(</span><span class="err">可选</span><span class="p">)</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">保存的网盘路径</span><span class="p">,</span><span class="w"> </span><span class="err">需包含文件名</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>注意: 使用此功能秒传文件, 前提是知道文件的大小, md5, 前256KB切片的 md5 (可选), crc32 (可选), 且百度网盘中存在一模一样的文件.</p>
+<p>上传的文件将会保存到网盘的目标目录.</p>
+<p>遇到同名文件将会自动覆盖! </p>
+<p>可能无法秒传 20GB 以上的文件!!</p>
+<h4>例子:</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 如果秒传成功, 则保存到网盘路径 /test</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">rapidupload</span><span class="w"> </span><span class="o">-</span><span class="n">length</span><span class="o">=</span><span class="mi">56276137</span><span class="w"> </span><span class="o">-</span><span class="n">md5</span><span class="o">=</span><span class="n">fbe082d80e90f90f0fb1f94adbbcfa7f</span><span class="w"> </span><span class="o">-</span><span class="n">slicemd5</span><span class="o">=</span><span class="mi">38</span><span class="n">c6a75b0ec4499271d4ea38a667ab61</span><span class="w"> </span><span class="o">-</span><span class="n">crc32</span><span class="o">=</span><span class="mi">314332359</span><span class="w"> </span><span class="o">/</span><span class="n">test</span>
+</code></pre></div>
+
+<h2>修复文件MD5</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">fixmd5</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<p>尝试修复文件的MD5值, 以便于校验文件的完整性和导出文件.</p>
+<p>使用分片上传文件, 当文件分片数大于1时, 百度网盘服务端最终计算所得的md5值和本地的不一致, 这可能是百度网盘的bug.</p>
+<p>不过把上传的文件下载到本地后，对比md5值是匹配的, 也就是文件在传输中没有发生损坏.</p>
+<p>对于MD5值可能有误的文件, 程序会在获取文件的元信息时, 给出MD5值 "可能不正确" 的提示, 表示此文件可以尝试进行MD5值修复.</p>
+<p>修复文件MD5不一定能成功, 原因可能是服务器未刷新, 可过几天后再尝试.</p>
+<p>修复文件MD5的原理为秒传文件, 即修复文件MD5成功后, 文件的<strong>创建日期, 修改日期, fs_id, 版本历史等信息</strong>将会被覆盖, 修复的MD5值将覆盖原先的MD5值, 但不影响文件的完整性.</p>
+<p>注意: 无法修复 <strong>20GB</strong> 以上文件的 md5!!</p>
+<h4>例子:</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">修复</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">的</span><span class="w"> </span><span class="n">MD5</span><span class="w"> </span><span class="n">值</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">fixmd5</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span>
+</code></pre></div>
+
+<h2>获取本地文件的秒传信息</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">sumfile</span><span class="w"> </span><span class="o">&lt;</span><span class="n">本地文件的路径</span><span class="o">&gt;</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">sf</span><span class="w"> </span><span class="o">&lt;</span><span class="n">本地文件的路径</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>获取本地文件的大小, md5, 前256KB切片的 md5, crc32, 可用于秒传文件.</p>
+<h4>例子:</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">获取</span><span class="w"> </span><span class="nl">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">Administrator</span><span class="err">\</span><span class="n">Desktop</span><span class="err">\</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">的秒传信息</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">sumfile</span><span class="w"> </span><span class="nl">C</span><span class="p">:</span><span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">Administrator</span><span class="o">/</span><span class="n">Desktop</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span>
+</code></pre></div>
+
+<h2>导出文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">ep</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="err">文件</span><span class="o">/</span><span class="err">目录</span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span>
+</code></pre></div>
+
+<p>导出网盘内的文件或目录, 原理为秒传文件, 此操作会生成导出文件或目录的命令.</p>
+<h4>注意</h4>
+<p><strong>无法导出 20GB 以上的文件!!</strong></p>
+<p><strong>无法导出文件的版本历史等数据!!</strong></p>
+<p>并不是所有的文件都能导出成功, 程序会列出无法导出的文件列表</p>
+<h4>例子:</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 导出当前工作目录:</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="k">export</span>
+
+<span class="c1"># 导出所有文件和目录, 并设置新的根目录为 /root</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="o">-</span><span class="n">root</span><span class="o">=/</span><span class="n">root</span><span class="w"> </span><span class="o">/</span>
+
+<span class="c1"># 导出 /我的资源</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="k">export</span><span class="w"> </span><span class="o">/</span><span class="err">我的资源</span>
+</code></pre></div>
+
+<h2>创建目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">mkdir</span><span class="w"> </span><span class="mi">123</span>
+</code></pre></div>
+
+<h2>删除文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">&lt;</span><span class="n">网盘文件或目录的路径1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件或目录2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件或目录3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<p>注意: 删除多个文件和目录时, 请确保每一个文件和目录都存在, 否则删除操作会失败.</p>
+<p>被删除的文件或目录可在网盘文件回收站找回.</p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">删除</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">删除</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">2.</span><span class="n">mp4</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">2.</span><span class="n">mp4</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">删除</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="w"> </span><span class="n">内的所有文件和目录</span><span class="p">,</span><span class="w"> </span><span class="n">但不删除该目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">rm</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="cm">/*</span>
+
+<span class="cm"># 删除 /我的资源 整个目录 !!</span>
+<span class="cm">BaiduPCS-Go rm /我的资源</span>
+</code></pre></div>
+
+<h2>拷贝文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目标</span><span class="w"> </span><span class="n">文件</span><span class="o">/</span><span class="n">目录</span><span class="o">&gt;</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目标目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>注意: 拷贝多个文件和目录时, 请确保每一个文件和目录都存在, 否则拷贝操作会失败.</p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">复制到</span><span class="w"> </span><span class="n">根目录</span><span class="w"> </span><span class="o">/</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">2.</span><span class="n">mp4</span><span class="w"> </span><span class="n">复制到</span><span class="w"> </span><span class="n">根目录</span><span class="w"> </span><span class="o">/</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">cp</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">2.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span>
+</code></pre></div>
+
+<h2>移动/重命名文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nl">移动</span><span class="p">:</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">mv</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span><span class="w"> </span><span class="o">&lt;</span><span class="n">目标目录</span><span class="o">&gt;</span>
+<span class="err">#</span><span class="w"> </span><span class="nl">重命名</span><span class="p">:</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">mv</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">重命名的文件</span><span class="o">/</span><span class="n">目录</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>注意: 移动多个文件和目录时, 请确保每一个文件和目录都存在, 否则移动操作会失败.</p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">移动到</span><span class="w"> </span><span class="n">根目录</span><span class="w"> </span><span class="o">/</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">mv</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">将</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="n">重命名为</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">3.</span><span class="n">mp4</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">mv</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">1.</span><span class="n">mp4</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="o">/</span><span class="mf">3.</span><span class="n">mp4</span>
+</code></pre></div>
+
+<h2>分享文件/目录</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span>
+</code></pre></div>
+
+<h3>设置分享文件/目录</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="k">set</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录2</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">文件</span><span class="o">/</span><span class="n">目录2</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<h3>列出已分享文件/目录</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">list</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">l</span>
+</code></pre></div>
+
+<h3>取消分享文件/目录</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">cancel</span><span class="w"> </span><span class="o">&lt;</span><span class="n">shareid_1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">shareid_2</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">share</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="o">&lt;</span><span class="n">shareid_1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">shareid_2</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<p>目前只支持通过分享id (shareid) 来取消分享.</p>
+<h2>离线下载</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">clouddl</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">od</span>
+</code></pre></div>
+
+<p>离线下载支持http/https/ftp/电驴/磁力链协议</p>
+<p>离线下载同时进行的任务数量有限, 超出限制的部分将无法添加.</p>
+<h3>添加离线下载任务</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="o">-</span><span class="k">path</span><span class="o">=&lt;</span><span class="n">离线下载文件保存的路径</span><span class="o">&gt;</span><span class="w"> </span><span class="n">资源地址1</span><span class="w"> </span><span class="n">地址2</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<p>添加任务成功之后, 返回离线下载的任务ID.</p>
+<h3>精确查询离线下载任务</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="n">任务ID1</span><span class="w"> </span><span class="n">任务ID2</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<h3>查询离线下载任务列表</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="n">list</span>
+</code></pre></div>
+
+<h3>取消离线下载任务</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="n">cancel</span><span class="w"> </span><span class="n">任务ID1</span><span class="w"> </span><span class="n">任务ID2</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<h3>删除离线下载任务</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="n">任务ID1</span><span class="w"> </span><span class="n">任务ID2</span><span class="w"> </span><span class="p">...</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">清空离线下载任务记录</span><span class="p">,</span><span class="w"> </span><span class="n">程序不会进行二次确认</span><span class="p">,</span><span class="w"> </span><span class="n">谨慎操作</span><span class="err">!!!</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="o">-</span><span class="ow">all</span>
+</code></pre></div>
+
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">将百度和腾讯主页</span><span class="p">,</span><span class="w"> </span><span class="n">离线下载到根目录</span><span class="w"> </span><span class="o">/</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="o">-</span><span class="k">path</span><span class="o">=/</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">baidu</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="nl">http</span><span class="p">:</span><span class="o">//</span><span class="n">qq</span><span class="p">.</span><span class="n">com</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">添加磁力链接任务</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="nl">magnet</span><span class="p">:</span><span class="vm">?</span><span class="n">xt</span><span class="o">=</span><span class="nl">urn</span><span class="p">:</span><span class="nl">btih</span><span class="p">:</span><span class="n">xxx</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">查询任务ID为</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="n">的离线下载任务状态</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="n">query</span><span class="w"> </span><span class="mi">12345</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">取消任务ID为</span><span class="w"> </span><span class="mi">12345</span><span class="w"> </span><span class="n">的离线下载任务</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">offlinedl</span><span class="w"> </span><span class="n">cancel</span><span class="w"> </span><span class="mi">12345</span>
+</code></pre></div>
+
+<h2>回收站</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span>
+</code></pre></div>
+
+<p>回收站操作.</p>
+<h3>列出回收站文件列表</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="n">list</span>
+</code></pre></div>
+
+<h4>可选参数</h4>
+<div class="highlight"><pre><span></span><code>  --page value  回收站文件列表页数 (default: 1)
+</code></pre></div>
+
+<h3>还原回收站文件或目录</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">restore</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fs_id</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fs_id</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fs_id</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<p>根据文件/目录的 fs_id, 还原回收站指定的文件或目录.</p>
+<h3>删除回收站文件或目录/清空回收站</h3>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="o">[</span><span class="n">-all</span><span class="o">]</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fs_id</span><span class="w"> </span><span class="mi">1</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fs_id</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">fs_id</span><span class="w"> </span><span class="mi">3</span><span class="o">&gt;</span><span class="w"> </span><span class="p">...</span>
+</code></pre></div>
+
+<p>根据文件/目录的 fs_id 或 -all 参数, 删除回收站指定的文件或目录或清空回收站.</p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">从回收站还原两个文件</span><span class="p">,</span><span class="w"> </span><span class="n">其中的两个文件的</span><span class="w"> </span><span class="n">fs_id</span><span class="w"> </span><span class="n">分别为</span><span class="w"> </span><span class="mi">1013792297798440</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="mi">643596340463870</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">restore</span><span class="w"> </span><span class="mi">1013792297798440</span><span class="w"> </span><span class="mi">643596340463870</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">从回收站删除两个文件</span><span class="p">,</span><span class="w"> </span><span class="n">其中的两个文件的</span><span class="w"> </span><span class="n">fs_id</span><span class="w"> </span><span class="n">分别为</span><span class="w"> </span><span class="mi">1013792297798440</span><span class="w"> </span><span class="n">和</span><span class="w"> </span><span class="mi">643596340463870</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="mi">1013792297798440</span><span class="w"> </span><span class="mi">643596340463870</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">清空回收站</span><span class="p">,</span><span class="w"> </span><span class="n">程序不会进行二次确认</span><span class="p">,</span><span class="w"> </span><span class="n">谨慎操作</span><span class="err">!!!</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">recycle</span><span class="w"> </span><span class="k">delete</span><span class="w"> </span><span class="o">-</span><span class="ow">all</span>
+</code></pre></div>
+
+<h2>显示程序环境变量</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">env</span>
+</code></pre></div>
+
+<p>BAIDUPCS_GO_CONFIG_DIR: 配置文件路径,</p>
+<p>BAIDUPCS_GO_VERBOSE: 是否启用调试.</p>
+<h2>显示和修改程序配置项</h2>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">显示配置</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">config</span>
+
+<span class="err">#</span><span class="w"> </span><span class="n">设置配置</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="k">set</span>
+</code></pre></div>
+
+<p>注意: v3.5 以后, 程序对配置文件储存路径的寻找做了调整, 配置文件所在的目录可以是程序本身所在目录, 也可以是家目录.</p>
+<p>配置文件所在的目录为家目录的情况:</p>
+<p>Windows: <code>%APPDATA%\BaiduPCS-Go</code></p>
+<p>其他操作系统: <code>$HOME/.config/BaiduPCS-Go</code></p>
+<p>可通过设置环境变量 <code>BAIDUPCS_GO_CONFIG_DIR</code>, 指定配置文件存放的目录.</p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># 显示所有可以设置的值</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="o">-</span><span class="n">h</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">-</span><span class="n">h</span>
+
+<span class="c1"># 设置下载文件的储存目录</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">-</span><span class="n">savedir</span><span class="w"> </span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">Downloads</span>
+
+<span class="c1"># 设置下载最大并发量为 150</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">-</span><span class="n">max_parallel</span><span class="w"> </span><span class="mi">150</span>
+
+<span class="c1"># 组合设置</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="n">config</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="o">-</span><span class="n">max_parallel</span><span class="w"> </span><span class="mi">150</span><span class="w"> </span><span class="o">-</span><span class="n">savedir</span><span class="w"> </span><span class="n">D</span><span class="p">:</span><span class="o">/</span><span class="n">Downloads</span>
+</code></pre></div>
+
+<h2>测试通配符</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="o">&lt;</span><span class="n">通配符表达式</span><span class="o">&gt;</span>
+</code></pre></div>
+
+<p>测试通配符匹配路径, 操作成功则输出所有匹配到的路径.</p>
+<h4>例子</h4>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="n">匹配</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="w"> </span><span class="n">目录下所有mp4格式的文件</span>
+<span class="n">BaiduPCS</span><span class="o">-</span><span class="k">Go</span><span class="w"> </span><span class="k">match</span><span class="w"> </span><span class="o">/</span><span class="n">我的资源</span><span class="cm">/*.mp4</span>
+</code></pre></div>
+
+<h2>工具箱</h2>
+<div class="highlight"><pre><span></span><code><span class="n">BaiduPCS</span><span class="o">-</span><span class="n">Go</span><span class="w"> </span><span class="k">tool</span>
+</code></pre></div>
+
+<p>目前工具箱支持加解密文件等.</p>
+<h1>初级使用教程</h1>
+<p>新手建议: <strong>双击运行程序</strong>, 进入仿 Linux shell 的 cli 交互模式;</p>
+<p>cli交互模式下, 光标所在行的前缀应为 <code>BaiduPCS-Go &gt;</code>, 如果登录了百度帐号则格式为 <code>BaiduPCS-Go:&lt;工作目录&gt; &lt;百度ID&gt;$</code></p>
+<p>以下例子的命令, 均为 cli交互模式下的命令</p>
+<p>运行命令的正确操作: <strong>输入命令, 按一下回车键 (键盘上的 Enter 键)</strong>, 程序会接收到命令并输出结果</p>
+<h2>1. 查看程序使用说明</h2>
+<p>cli交互模式下, 运行命令 <code>help</code></p>
+<h2>2. 登录百度帐号 (必做)</h2>
+<p>cli交互模式下, 运行命令 <code>login -h</code> (注意空格) 查看帮助</p>
+<p>cli交互模式下, 运行命令 <code>login</code> 程序将会提示你输入百度用户名(手机号/邮箱/用户名)和密码, 必要时还可以在线验证绑定的手机号或邮箱</p>
+<h2>3. 切换网盘工作目录</h2>
+<p>cli交互模式下, 运行命令 <code>cd /我的资源</code> 将工作目录切换为 <code>/我的资源</code> (前提: 该目录存在于网盘)</p>
+<p>目录支持通配符匹配, 所以你也可以这样: 运行命令 <code>cd /我的*</code> 或 <code>cd /我的??</code> 将工作目录切换为 <code>/我的资源</code>, 简化输入.</p>
+<p>将工作目录切换为 <code>/我的资源</code> 成功后, 运行命令 <code>cd ..</code> 切换上级目录, 即将工作目录切换为 <code>/</code></p>
+<p>为什么要这样设计呢, 举个例子,</p>
+<p>假设 你要下载 <code>/我的资源</code> 内名为 <code>1.mp4</code> 和 <code>2.mp4</code> 两个文件, 而未切换工作目录, 你需要依次运行以下命令:</p>
+<div class="highlight"><pre><span></span><code>d /我的资源/1.mp4
+d /我的资源/2.mp4
+</code></pre></div>
+
+<p>而切换网盘工作目录之后, 依次运行以下命令:</p>
+<div class="highlight"><pre><span></span><code>cd /我的资源
+d 1.mp4
+d 2.mp4
+</code></pre></div>
+
+<p>这样就达到了简化输入的目的</p>
+<h2>4. 网盘内列出文件和目录</h2>
+<p>cli交互模式下, 运行命令 <code>ls -h</code> (注意空格) 查看帮助</p>
+<p>cli交互模式下, 运行命令 <code>ls</code> 来列出当前所在目录的文件和目录</p>
+<p>cli交互模式下, 运行命令 <code>ls /我的资源</code> 来列出 <code>/我的资源</code> 内的文件和目录</p>
+<p>cli交互模式下, 运行命令 <code>ls ..</code> 来列出当前所在目录的上级目录的文件和目录</p>
+<h2>5. 下载文件</h2>
+<p>说明: 下载的文件默认保存到 download/ 目录 (文件夹)</p>
+<p>cli交互模式下, 运行命令 <code>d -h</code> (注意空格) 查看帮助</p>
+<p>cli交互模式下, 运行命令 <code>d /我的资源/1.mp4</code> 来下载位于 <code>/我的资源/1.mp4</code> 的文件 <code>1.mp4</code> , 该操作等效于运行以下命令:</p>
+<div class="highlight"><pre><span></span><code>cd /我的资源
+d 1.mp4
+</code></pre></div>
+
+<p>现在已经支持目录 (文件夹) 下载, 所以, 运行以下命令, 会下载 <code>/我的资源</code> 内的所有文件 (违规文件除外):</p>
+<div class="highlight"><pre><span></span><code>d /我的资源
+</code></pre></div>
+
+<p>参见 例6 设置下载最大并发量</p>
+<h2>6. 设置下载最大并发量</h2>
+<p>cli交互模式下, 运行命令 <code>config set -h</code> (注意空格) 查看设置帮助以及可供设置的值</p>
+<p>cli交互模式下, 运行命令 <code>config set -max_parallel 250</code> 将下载最大并发量设置为 250</p>
+<p>下载最大并发量建议值: 50~500, 太低下载速度提升不明显甚至速度会变为0, 太高可能会导致程序出错被操作系统结束掉.</p>
+<h2>7. 退出程序</h2>
+<p>运行命令 <code>quit</code> 或 <code>exit</code> 或 组合键 <code>Ctrl+C</code> 或 组合键 <code>Ctrl+D</code></p>
+<h1>已知问题</h1>
+<ul>
+<li>分片上传文件时, 当文件分片数大于1, 网盘端最终计算所得的md5值和本地的不一致, 这可能是百度网盘的bug, 测试把上传的文件下载到本地后，对比md5值是匹配的. 可通过秒传的原理来修复md5值.</li>
+</ul>
+<h1>常见问题</h1>
+<p>参见 <a href="https://github.com/iikira/BaiduPCS-Go/wiki/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98">常见问题</a></p>
+<h1>TODO</h1>
+<ol>
+<li>上传大文件;</li>
+<li>回收站操作, 例如查询回收站文件, 还原文件或目录等.</li>
+</ol>
+<h1>交流反馈</h1>
+<p>提交Issue: <a href="https://github.com/iikira/BaiduPCS-Go/issues">Issues</a></p>
+<p>邮箱: i@mail.iikira.com</p>
+<p>QQ群: 178324706</p>
+<h1>捐助</h1>
+<p>如果你愿意.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">支付宝</th>
+<th style="text-align: center;">微信</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="alipay" src="https://github.com/iikira/BaiduPCS-Go/raw/master/assets/donate/alipay.jpg"></td>
+<td style="text-align: center;"><img alt="weixin" src="https://github.com/iikira/BaiduPCS-Go/raw/master/assets/donate/weixin.png"></td>
+</tr>
+</tbody>
+</table>
+<p><a href="/">回主页</a></p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+    </p>
+  </div>
+
+
+
+
+
+</article>
+
+    <footer>
+<p>&copy;  </p>
+<p>
+Built with <a href="http://getpelican.com" target="_blank">Pelican</a> using <a href="http://bit.ly/flex-pelican" target="_blank">Flex</a> theme
+</p>    </footer>
+  </main>
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " 全是转载 ",
+  "url" : "https://www.zeusinolympia.eu.org",
+  "image": "",
+  "description": ""
+}
+</script>
+
+
+</body>
+</html>
