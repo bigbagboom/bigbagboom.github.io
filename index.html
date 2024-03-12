@@ -1,296 +1,385 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="Pelican" />
-        <title>全是转载</title>
-        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/main.css" />
-        <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="全是转载 Atom Feed" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="bbb" />
+        <meta name="description" content="" />
+
+
+    <title>全是转载</title>
+
+        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/bootstrap.min.css" type="text/css" />
+
+    <link href="https://www.zeusinolympia.eu.org/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://www.zeusinolympia.eu.org/theme/css/pygments/native.css" rel="stylesheet" />
+    
+    <link href="https://www.zeusinolympia.eu.org/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="全是转载 ATOM Feed" />
 </head>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://www.zeusinolympia.eu.org" title="全是转载" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://www.zeusinolympia.eu.org/archives.html" title="Recent Articles" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
+                        <i class="fa fa-users padding-small"></i>
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
+                    <li>
+                        <a href="#" title="Another social link"><i class="fa fa-another-social-link-square fa-lg padding-small"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" title="You can add links in your config file"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i></a>
+                    </li>
+                </ul></li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
+        </div>
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://www.zeusinolympia.eu.org/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            全是转载
+                    </a>
+                </li>
+                    <li>
+                        <a href="https://www.zeusinolympia.eu.org/archives.html">
+                            <span class="glyphicon glyphicon-th-list padding-small"></span>
+                            Recent Articles
+                        </a>
+                    </li>
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
+                        <i class="fa fa-users padding-small"></i>
+                        Contact
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
+                    <li>
+                        <a href="#" title="Another social link">
+                            <i class="fa fa-another-social-link-square fa-lg padding-small"></i>
+                            Another social link
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="You can add links in your config file">
+                            <i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i>
+                            You can add links in your config file
+                        </a>
+                    </li>
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Categories
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/computer.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Computer
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            IT,Network
+                            <span class="badge pull-right categorybadge">3</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-macmacos.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Mac,MacOS
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pandocmarkdown.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Pandoc,Markdown
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelican.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Pelican
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelicanmarkdown.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Pelican,Markdown
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/life.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Life
+                            <span class="badge pull-right categorybadge">5</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/music.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Music
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/thinking.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Thinking
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/web.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            web
+                            <span class="badge pull-right categorybadge">4</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/xiang-fa.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            想法
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                </ul></li>
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://www.zeusinolympia.eu.org/">全是转载</a></h1>
-                <nav><ul>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/computer.html">Computer</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-macmacos.html">技术,Mac,MacOS</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pandocmarkdown.html">技术,Pandoc,Markdown</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelican.html">技术,Pelican</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelicanmarkdown.html">技术,Pelican,Markdown</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/music.html">Music</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/thinking.html">Thinking</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/web.html">web</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/xiang-fa.html">想法</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="https://www.zeusinolympia.eu.org/guo-hao-mei-yi-tian.html">过好每一天</a></h1>
-<footer class="post-info">
-        <abbr class="published" title="2024-03-12T11:35:00+08:00">
-                Published: 二 12 三月 2024
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>.</p>
-
-</footer><!-- /.post-info --><p>换了台电脑。把里面的博客文章迁移过来时，发现又一年过去了。而去年唯一的一篇日志里的大多数内容是由chatGPTs生成的。</p>
-<p>2023对我总的来说是虚度的一年。大概是经历了22年的无奈，2023似乎完全没有了斗志，只想着每天浑浑噩噩度过就好。然后发现，虚度时光似乎也没什么不好。</p>
-<p>按时打卡，到点吃饭，不需要过多思考，只在乎片刻感受。看了“万神殿”后，对人类追求永生的执念不再心有戚戚，以前寄托于神话，现在则托付给科学。但几乎可以99.9999%的肯定，这所谓的科学只是一厢情愿而已。“万神殿”也好，“碳变”也罢，人类对于死亡的畏惧转化为研究科技的动力。活的更久，乃至永久，这究竟是奢望还是贪念。活那么久，究竟有没有意义？</p>
-<p>也许，人们怕的并非终有一死。人们害怕的是人生毫无意义。莫名其妙地在世间来一回，生不带来死不带去，而且不管是个人，而是整个人类，乃至宇宙本身，都有生有灭，时间尺度再久又如何？时间之外又是什么。想出这种问题的人不是太闲又是什么。</p>
-<p>过好每一天似乎是个现实的选择。人不可能永远健康，光是写这几个字就会让我沮丧，但这是现实。人必须面对现实，认清现实。如果每一天开始，你心里都有些小小期盼，在日终的时候，这份期盼还在，那就算是不错的日子。不是么？人生中充满各种磨难，无风无浪虽然平淡，但回头看的时候，那就是最好的时光。</p>
-<p><a href="/">回主页</a></p>                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <hr />
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/openaijia-chi-de-xin-bi-ying.html" rel="bookmark"
-                           title="Permalink to OpenAI加持的新必应">OpenAI加持的新必应</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2023-03-01T15:35:00+08:00">
-                Published: 三 01 三月 2023
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/computer.html">Computer</a>.</p>
-
-</footer><!-- /.post-info -->                <p>前段时间chatGPT大火，我却没办法尝试。申请的门槛有点高，不光要翻墙，还需要美国的IP地址，这个就很难靠免费的方式做到了。好在微软 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/openaijia-chi-de-xin-bi-ying.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/2023.html" rel="bookmark"
-                           title="Permalink to 2023">2023</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2023-01-12T15:55:00+08:00">
-                Published: 四 12 一月 2023
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>.</p>
-
-</footer><!-- /.post-info -->                <p>刚刚过去的2022年对于国人来说可谓魔幻，但年尾的放开虽出人意料，却绝对是最好的事情，如果说哪里不够好，无非是放开还不够早而已。</p>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content" class="body">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="jumbotron">  
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>全是转载</h1>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <h2>Recent Articles:</h2>
+        </div>
+    </div>
+</section>
+<div class="row">
+    <div class="col-lg-9">
+            <article>
+                <h2>
+                    <a href="https://www.zeusinolympia.eu.org/guo-hao-mei-yi-tian.html">过好每一天</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2024-03-12T11:35:00+08:00"> 二 12 三月 2024</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <p>换了台电脑。把里面的博客文章迁移过来时，发现又一年过去了。而去年唯一的一篇日志里的大多数内容是由chatGPTs生成的。</p>
+<p>2023对我总的来说是虚度的一年。大概是 …</p>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="https://www.zeusinolympia.eu.org/openaijia-chi-de-xin-bi-ying.html">OpenAI加持的新必应</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2023-03-01T15:35:00+08:00"> 三 01 三月 2023</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://www.zeusinolympia.eu.org/category/computer.html">Computer</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <p>前段时间chatGPT大火，我却没办法尝试。申请的门槛有点高，不光要翻墙，还需要美国的IP地址，这个就很难靠免费的方式做到了。好在微软 …</p>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="https://www.zeusinolympia.eu.org/2023.html">2023</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2023-01-12T15:55:00+08:00"> 四 12 一月 2023</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <p>刚刚过去的2022年对于国人来说可谓魔幻，但年尾的放开虽出人意料，却绝对是最好的事情，如果说哪里不够好，无非是放开还不够早而已。</p>
 <p>放开，意味着 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/2023.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="https://www.zeusinolympia.eu.org/shi-se-xing-ye.html">食色性也</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2022-09-15T15:45:00+08:00"> 四 15 九月 2022</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <p>前几天有个很热闹的新闻是某当红男明星又翻车了，还是翻在了很多前辈碰到的老问题上，“多次嫖娼”被抓，估计是很难翻 …</p>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="https://www.zeusinolympia.eu.org/dong-tai-qing-ling.html">动态清零</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2022-08-03T15:24:00+08:00"> 三 03 八月 2022</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <p>今年发生了不少“活久见”的事情，就算是人生经验再丰富的人，都会觉得是神奇的事，就这么在身边发生了。所以回过头来看 …</p>
+                </div>
+            </article>
+        <div class="btn-more text-right">
+            <a class="btn btn-default btn-xs twitchy-background" href="https://www.zeusinolympia.eu.org/archives.html">
+                View all Articles ...
+            </a>
+        </div>
+    </div>
+</div>
+<footer>
+    <hr>
+    <div class="row">
+        <div class="col-lg-9 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2024 bbb
+            </small></p>
+        </div>
+    </div>
+</footer>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery Version 1.11.2 -->
+    <script src="https://www.zeusinolympia.eu.org/theme/js/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://www.zeusinolympia.eu.org/theme/js/bootstrap.min.js"></script>
+    <!-- twitchy Script -->
+    <script src="https://www.zeusinolympia.eu.org/theme/js/pelican_twitchy.min.js"></script>
+<script>
+    function FadeInOnScroll(ObjectList){
+        ObjectList.each(function(i) {
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/shi-se-xing-ye.html" rel="bookmark"
-                           title="Permalink to 食色性也">食色性也</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-09-15T15:45:00+08:00">
-                Published: 四 15 九月 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>.</p>
-
-</footer><!-- /.post-info -->                <p>前几天有个很热闹的新闻是某当红男明星又翻车了，还是翻在了很多前辈碰到的老问题上，“多次嫖娼”被抓，估计是很难翻 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/shi-se-xing-ye.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/dong-tai-qing-ling.html" rel="bookmark"
-                           title="Permalink to 动态清零">动态清零</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-08-03T15:24:00+08:00">
-                Published: 三 03 八月 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a>.</p>
-
-</footer><!-- /.post-info -->                <p>今年发生了不少“活久见”的事情，就算是人生经验再丰富的人，都会觉得是神奇的事，就这么在身边发生了。所以回过头来看 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/dong-tai-qing-ling.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/zui-ai-lao-ge.html" rel="bookmark"
-                           title="Permalink to 最爱老歌">最爱老歌</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-03-04T16:24:00+08:00">
-                Published: 五 04 三月 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/music.html">Music</a>.</p>
-
-</footer><!-- /.post-info -->                <p>这几天世界局势不怎么太平，在世界一片反战的语境下，中文互联网出现了神奇的反反战一族，也算是让人大涨见识了。</p>
-<p>法 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/zui-ai-lao-ge.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/li-yong-ipset-feng-jin-da-liang-ip.html" rel="bookmark"
-                           title="Permalink to 利用 ipset 封禁大量 IP">利用 ipset 封禁大量 IP</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-21T15:42:00+08:00">
-                Published: 一 21 二月 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a>.</p>
-
-</footer><!-- /.post-info -->                <p>看日志发现家里的路由器上偶尔会有奇怪的ip地址尝试登录，一开始我也不在意，毕竟对自己设置的密码还是有点信心的，但今天下午 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/li-yong-ipset-feng-jin-da-liang-ip.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/guan-yu-linuxzhong-you-jian-de-zhe-teng.html" rel="bookmark"
-                           title="Permalink to 关于Linux中邮件的折腾">关于Linux中邮件的折腾</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-16T15:42:00+08:00">
-                Published: 三 16 二月 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a>.</p>
-
-</footer><!-- /.post-info -->                <h2>起因</h2>
-<p>作为一个拥有域名(免费的)的资(菜)深(鸟)网民，我自豪地租用了云vps(免费的)用于架站，也就是本站，以年均一到三篇的频 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/guan-yu-linuxzhong-you-jian-de-zhe-teng.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/shi-yong-wireguard-da-jian-si-you-wang-luo.html" rel="bookmark"
-                           title="Permalink to 使用 WireGuard 搭建私有网络">使用 WireGuard 搭建私有网络</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-07-15T15:42:00+08:00">
-                Published: 四 15 七月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a>.</p>
-
-</footer><!-- /.post-info -->                <p>以下文字都是网上搬运过来的，原始链接是<a href="https://blog.gimo.me/post/setup-wireguard-vpn/">这个</a>。</p>
-<h2>起因</h2>
-<p>在上篇日记中讲到了自建 vaultwarden 密码管理软件的经过，虽然过程一帆风 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/shi-yong-wireguard-da-jian-si-you-wang-luo.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="https://www.zeusinolympia.eu.org/guan-yu-ping-deng.html" rel="bookmark"
-                           title="Permalink to 关于平等">关于平等</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2021-04-15T17:02:00+08:00">
-                Published: 四 15 四月 2021
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/thinking.html">Thinking</a>.</p>
-
-</footer><!-- /.post-info -->                <p>以前对这个问题没有细想过。从小到大，被灌输的观念就是要人人平等。当然，现在我也不会说平等不对，但我想说的是，平等 …</p>
-                <a class="readmore" href="https://www.zeusinolympia.eu.org/guan-yu-ping-deng.html">read more</a>
-                </div><!-- /.entry-content -->
-            </article></li>
-                </ol><!-- /#posts-list -->
-<nav>
-  <ul>
-    <li>Page 1 / 2</li>
-        <li><a href="https://www.zeusinolympia.eu.org/index2.html">&rang;</a></li>
-        <li><a href="https://www.zeusinolympia.eu.org/index2.html">&Rang;</a></li>
-  </ul>
-</nav>
-                </section><!-- /#content -->
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://getpelican.com/">Pelican</a></li>
-                            <li><a href="https://www.python.org/">Python.org</a></li>
-                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
-
+            if( bottom_of_window > bottom_of_object ){
+                $(this).fadeTo(750,1);
+            }
+        });
+    }
+    articles = $("article").fadeTo(0, 0.05);
+    FadeInOnScroll(articles)
+    $(window).scroll(function() {
+        FadeInOnScroll(articles)
+    });
+</script>
 </body>
 </html>

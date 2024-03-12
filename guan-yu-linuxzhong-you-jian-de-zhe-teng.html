@@ -1,52 +1,251 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="generator" content="Pelican" />
-        <title>关于Linux中邮件的折腾</title>
-        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/main.css" />
-        <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="全是转载 Atom Feed" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="bbb" />
         <meta name="description" content="起因 作为一个拥有域名(免费的)的资(菜)深(鸟)网民，我自豪地租用了云vps(免费的)用于架站，也就是本站，以年均一到三篇的频 …" />
+
+
+    <title>关于Linux中邮件的折腾 - 全是转载</title>
+
+        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/bootstrap.min.css" type="text/css" />
+
+    <link href="https://www.zeusinolympia.eu.org/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://www.zeusinolympia.eu.org/theme/css/pygments/native.css" rel="stylesheet" />
+    
+    <link href="https://www.zeusinolympia.eu.org/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="全是转载 ATOM Feed" />
 </head>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="https://www.zeusinolympia.eu.org" title="全是转载" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="https://www.zeusinolympia.eu.org/archives.html" title="Recent Articles" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
+                        <i class="fa fa-users padding-small"></i>
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
+                    <li>
+                        <a href="#" title="Another social link"><i class="fa fa-another-social-link-square fa-lg padding-small"></i></a>
+                    </li>
+                    <li>
+                        <a href="#" title="You can add links in your config file"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i></a>
+                    </li>
+                </ul></li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
+        </div>
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="https://www.zeusinolympia.eu.org/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            全是转载
+                    </a>
+                </li>
+                    <li>
+                        <a href="https://www.zeusinolympia.eu.org/archives.html">
+                            <span class="glyphicon glyphicon-th-list padding-small"></span>
+                            Recent Articles
+                        </a>
+                    </li>
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
+                        <i class="fa fa-users padding-small"></i>
+                        Contact
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
+                    <li>
+                        <a href="#" title="Another social link">
+                            <i class="fa fa-another-social-link-square fa-lg padding-small"></i>
+                            Another social link
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="You can add links in your config file">
+                            <i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i>
+                            You can add links in your config file
+                        </a>
+                    </li>
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Categories
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/computer.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Computer
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            IT,Network
+                            <span class="badge pull-right categorybadge">3</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-macmacos.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Mac,MacOS
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pandocmarkdown.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Pandoc,Markdown
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelican.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Pelican
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelicanmarkdown.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            技术,Pelican,Markdown
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/life.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Life
+                            <span class="badge pull-right categorybadge">5</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/music.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Music
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/thinking.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Thinking
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/web.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            web
+                            <span class="badge pull-right categorybadge">4</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="https://www.zeusinolympia.eu.org/category/xiang-fa.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            想法
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                </ul></li>
+                
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="https://www.zeusinolympia.eu.org/">全是转载</a></h1>
-                <nav><ul>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/computer.html">Computer</a></li>
-                    <li class="active"><a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-macmacos.html">技术,Mac,MacOS</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pandocmarkdown.html">技术,Pandoc,Markdown</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelican.html">技术,Pelican</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/ji-zhu-pelicanmarkdown.html">技术,Pelican,Markdown</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/music.html">Music</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/thinking.html">Thinking</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/web.html">web</a></li>
-                    <li><a href="https://www.zeusinolympia.eu.org/category/xiang-fa.html">想法</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
-<section id="content" class="body">
-  <article>
-    <header>
-      <h1 class="entry-title">
-        <a href="https://www.zeusinolympia.eu.org/guan-yu-linuxzhong-you-jian-de-zhe-teng.html" rel="bookmark"
-           title="Permalink to 关于Linux中邮件的折腾">关于Linux中邮件的折腾</a></h1>
-    </header>
-
-    <div class="entry-content">
-<footer class="post-info">
-        <abbr class="published" title="2022-02-16T15:42:00+08:00">
-                Published: 三 16 二月 2022
-        </abbr>
-
-        <address class="vcard author">
-                By                         <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
-        </address>
-<p>In <a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a>.</p>
-
-</footer><!-- /.post-info -->      <h2>起因</h2>
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content">
+    <article>
+        <div class="row">
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="https://www.zeusinolympia.eu.org/guan-yu-linuxzhong-you-jian-de-zhe-teng.html"
+                           rel="bookmark"
+                           title="Permalink to 关于Linux中邮件的折腾">
+                            关于Linux中邮件的折腾
+                        </a>
+                        <small>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2022-02-16T15:42:00+08:00"> 三 16 二月 2022</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="https://www.zeusinolympia.eu.org/category/itnetwork.html">IT,Network</a>
+            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    <h2>起因</h2>
 <p>作为一个拥有域名(免费的)的资(菜)深(鸟)网民，我自豪地租用了云vps(免费的)用于架站，也就是本站，以年均一到三篇的频率发布日志。我觉得这样也算是颇为佛系。然而，某一天我突然想到，域名虽然是网站的门牌，但它不是更该是邮件的标识么？这么多年来，我从没想过以这些属于我的域名作为邮件地址后缀，理由其实并不复杂。首先，我拥有很多免费邮箱，但用处并不大，现在已经很少需要用到个人邮箱与人交流。其次我的这些域名都是免费域名，现在属于我但未必永远属于我，从一开始我就有失去的心理准备，所以也就不会将它们和自己绑定的过于紧密。最后但并非最不重要的一点，在免费vps上设置自己域名的邮件服务也是有技术门槛的。</p>
 <p>然而最近，cloudflare的免费服务中新增了邮件路由功能，也就是说，你托管在cf上的域名可以通过设置邮件路由将发往你的域名后缀的邮箱转发到你指定的其他邮箱。但只能通过它收，不能通过它发。说实话我是觉得这个功能非常鸡肋，但我还是试着用了，然后作为强迫症中期，就觉得既然我能收这个地址的邮件但不能以这个邮箱地址发邮件这显然不对啊。</p>
 <p>于是问题就来了。我这个架站的vps因为是免费的，也因为它位于欧洲，还因为它只支持ipv6，所以访问它相当累人。在上面架web站已经折腾过一次了，我实在不想为了邮件再折腾它一回。因为那意味着要装软件，要配置，安装过程可能各种意外中断，搞不好就把现在还能服务的web搞挂了，要真那样，就太得不偿失了。</p>
@@ -67,38 +266,35 @@
 <p>后续更新：</p>
 <p>之后我又在其它vps上尝试了一回，这回失败得更彻底，但原因也更简单，就是服务商不给你收发邮件。看来邮件服务现在不算是个受欢迎的东西，至少不像Web服务那样成为vps服务的标配。要使用邮件服务是有门槛的，想悄悄设立一个无成本的邮件服务应该是不太可能的了。</p>
 <p><a href="/">回主页</a></p>
-    </div><!-- /.entry-content -->
-
-  </article>
+                </div>
+                <footer class="text-right">
+                    <p>- bbb</p>
+                </footer>
+            </div>
+        </div>
+    </article>
 </section>
-        <section id="extras" class="body">
-                <div class="blogroll">
-                        <h2>links</h2>
-                        <ul>
-                            <li><a href="https://getpelican.com/">Pelican</a></li>
-                            <li><a href="https://www.python.org/">Python.org</a></li>
-                            <li><a href="https://palletsprojects.com/p/jinja/">Jinja2</a></li>
-                            <li><a href="#">You can modify those links in your config file</a></li>
-                        </ul>
-                </div><!-- /.blogroll -->
-                <div class="social">
-                        <h2>social</h2>
-                        <ul>
-                            <li><a href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
-
-                            <li><a href="#">You can add links in your config file</a></li>
-                            <li><a href="#">Another social link</a></li>
-                        </ul>
-                </div><!-- /.social -->
-        </section><!-- /#extras -->
-
-        <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
-                </address><!-- /#about -->
-
-                <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
-        </footer><!-- /#contentinfo -->
+<footer>
+    <hr>
+    <div class="row">
+        <div class="col-lg-9 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                    &copy; 2024 bbb
+            </small></p>
+        </div>
+    </div>
+</footer>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery Version 1.11.2 -->
+    <script src="https://www.zeusinolympia.eu.org/theme/js/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://www.zeusinolympia.eu.org/theme/js/bootstrap.min.js"></script>
+    <!-- twitchy Script -->
+    <script src="https://www.zeusinolympia.eu.org/theme/js/pelican_twitchy.min.js"></script>
 
 </body>
 </html>
