@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>全是转载 - 技术,Pelican</title><link href="https://www.zeusinolympia.eu.org/" rel="alternate"></link><link href="https://www.zeusinolympia.eu.org/feeds/ji-zhu-pelican.atom.xml" rel="self"></link><id>https://www.zeusinolympia.eu.org/</id><updated>2018-07-07T11:33:00+08:00</updated><entry><title>Pelican最常使用的命令</title><link href="https://www.zeusinolympia.eu.org/pelicanzui-chang-shi-yong-de-ming-ling.html" rel="alternate"></link><published>2018-07-07T11:33:00+08:00</published><updated>2018-07-07T11:33:00+08:00</updated><author><name>bbb</name></author><id>tag:www.zeusinolympia.eu.org,2018-07-07:/pelicanzui-chang-shi-yong-de-ming-ling.html</id><summary type="html">&lt;p&gt;这是个用Pelican生成的静态网站，所以最常使用到的命令是以下这条：&lt;/p&gt;
+&lt;p&gt;pelican content -s pelicanconf.py -t /projects/your-site/themes/your-theme&lt;/p&gt;
+&lt;p&gt;这条命令需要在你的网站项目目录下输入，如果 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;这是个用Pelican生成的静态网站，所以最常使用到的命令是以下这条：&lt;/p&gt;
+&lt;p&gt;pelican content -s pelicanconf.py -t /projects/your-site/themes/your-theme&lt;/p&gt;
+&lt;p&gt;这条命令需要在你的网站项目目录下输入，如果不是，则写全路径：&lt;/p&gt;
+&lt;p&gt;pelican /path/to/your/content/ [-s path/to/your/settings.py] [-t /projects/your-site/themes/your-theme]&lt;/p&gt;
+&lt;blockquote&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="/"&gt;回主页&lt;/a&gt;&lt;/p&gt;</content><category term="技术,Pelican"></category></entry></feed>
