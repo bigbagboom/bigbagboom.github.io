@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="bbb" />
-        <meta name="description" content="之前网上下了本书，pdf格式，其中的图片全都看不到，只有一个个小方块。很大可能是制作书的人太粗心，只顾着把书生成出来，却 …" />
+        <meta name="description" content="昨天更新完最新一篇博客后，顺便检视了一下自己这个站，发现几乎已经完全成为生活废话堆积站了。原本转载电脑技术 …" />
 
 
-    <title>Markdown转pdf - 全是转载</title>
+    <title>想起了这里本来是为了技术转载而存在的 - 全是转载</title>
 
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -141,7 +141,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="/category/ji-zhu-pandocmarkdown.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             技术,Pandoc,Markdown
@@ -176,7 +176,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="/category/tech-lift.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Tech, Lift
@@ -225,20 +225,20 @@
             <div class="col-lg-9">
                 <header class="page-header">
                     <h1>
-                        <a href="/markdownzhuan-pdf.html"
+                        <a href="/xiang-qi-liao-zhe-li-ben-lai-shi-wei-liao-ji-zhu-zhuan-zai-er-cun-zai-de.html"
                            rel="bookmark"
-                           title="Permalink to Markdown转pdf">
-                            Markdown转pdf
+                           title="Permalink to 想起了这里本来是为了技术转载而存在的">
+                            想起了这里本来是为了技术转载而存在的
                         </a>
                         <small>
 <div class="post-info">
     <div class="publish-info-block">
         <small>
             <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2019-05-01T14:13:00+08:00"> 三 01 五月 2019</time>
+                <i class="fa fa-calendar padding-small"></i><time datetime="2024-08-16T15:40:00+08:00"> 五 16 八月 2024</time>
             </span>
             <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="/category/ji-zhu-pandocmarkdown.html">技术,Pandoc,Markdown</a>
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/tech-lift.html">Tech, Lift</a>
             </span>
         </small>
     </div>
@@ -250,20 +250,12 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="entry-content">
-                    <p>之前网上下了本书，pdf格式，其中的图片全都看不到，只有一个个小方块。很大可能是制作书的人太粗心，只顾着把书生成出来，却没仔细检查一遍。好在书是开源的，在github上找到书的原始md格式后，我便想着自己重新制作一份，把那些缺失的图都补上。</p>
-<p>想法是不错，但真做起来发现坑还是不少，所以需要记录一下。</p>
-<p>第一个办法是下载chrome插件，使得md文件在chrome中能正常展现，然后使用打印功能另存为pdf文件，最后把所有打印的pdf文件拼接起来就行了。这办法笨了点，全手工，但还算是简单有效。我就是这么把书重新制作好了，挺好的，不过在我的另一台win10点呢上却碰到了问题。不管使用什么办法，md文件就是无法在chrome中显示了，而是一律作为文件下载。google了很多都不知道为什么，到现在还是没有解决，希望有朝一日会明白什么原因。</p>
-<p>第二个办法，更高级，也更复杂，而且更多坑。这就是使用LaTex来制作。<a href="https://www.latex-project.org/">LaTex</a>是什么请直接访问链接了解，这里记录一下怎么借助它把markdown文件转为pdf，我使用的软件是 <a href="https://pandoc.org/">pandoc</a> 和 xelatex, 本来安装完pandoc 就可以一条命令生成pdf了，不过它缺省的pdf引擎对于cjk这种unicode字符不太友好，所以网上通常建议使用xelatex作为pdf引擎。这就需要安装<a href="https://miktex.org/">MikTex</a>这款软件了。安装这软件需要有直接的网络连接，不能通过proxy，至少我在windows下通过代理是没有安装成功。安装完之后，使用这个命令来生成pdf，假设转换的md文件是 01.0.md。</p>
-<p>pandoc 01.0.md --pdf-engine=xelatex -o test.pdf</p>
-<p>当然，我输入完这条命令后，毫无疑问是出错了。查了很多地方才找到一个不错的解决方案：</p>
-<p>在md文件中加上这些设置：</p>
-<hr>
-<p>documentclass:
-    - ctexart</p>
-<hr>
-<p>不过，实际经验告诉我，这并不一定能解决所有问题。所以，网上有人提供了一个不错的<a href="/pm-template.latex">template</a>，我修改了一下，但仍不能保证不会出错，如果出错，就只能修改md文件了，通常是一些特殊字符需要用\来转义，但找出这些问题需要很大的耐心。</p>
-<p>命令也会相应改为：</p>
-<p>pandoc 02.0.md -o 02.0.pdf --latex-engine=xelatex --template=pm-template.latex -f markdown-raw_tex </p>
+                    <p>昨天更新完最新一篇博客后，顺便检视了一下自己这个站，发现几乎已经完全成为生活废话堆积站了。原本转载电脑技术的想法已经暂停，原因大概是，技术发展太快，作为一个上了年纪的人，真的跟不上了。</p>
+<p>其实技术的发展一直影响着我的生活，从以前回家开电脑上网，到现在一个手机从早看到晚，技术发展的威力早就在此可见一斑，即便是用手机，早先也就看看图片文字，而现在全是短视频的世界，这完全是技术发展的威力。更便宜的存储，更快的网络，更高的算力，成就了所有这一切。</p>
+<p>有时候总觉得技术的发展还是不够快，比如从中国飞到美国，还是要花十几个小时外加费用也不低。但把时间的尺度拉长，和年少时相比，技术的变化还是非常大的。比如说，我幼年时很长时间只有收音机为伴，录音机和电视机都是在之后才有的，电视还是黑白的，看上彩电是很后面的事情，当然这和经济条件也有关。但那时候是怎么也想象不出现在能有这么薄这么大又这么高清的电视吧。在听歌方面经历了只能从收音机里听歌，到有了录音机开始听翻录的磁带，买了磁带随身听理由是学外语，然后CD机开始普及，磁带随身听换成了CD随身听，然后有了昙花一现的MD随身听，很快变成了MP3，最后听歌的成了苹果的智能手机。手机现在看起来无所不能了，但最开始的时候它像砖头那么大，且价格令人却步。随着GSM数字技术取代模拟技术，手机开始变小，价格也开始亲民。一开始，手机只能通话，然后，是短信，同时集成了一些有的没的功能，比如可以听收音机，然后是MP3，最后，手机开始可以玩游戏，带了导航功能，直到苹果iOS和安卓出世，当代智能手机终于完成华丽蜕变，顺便把企业市场的黑莓干掉。现在的手机可以联网，查资讯，即时通信，拍照，当然还是能听歌，通话成了最没存在感的功能，但它依然叫电话。</p>
+<p>电脑方面，我是从Apple II接触PC的，那时的少年宫计算机室开始装备UNIX小型机拖好多个终端屏幕，老师开始教我们这些小孩子学C语言，IBM的80286还是高端的个人电脑，单台售价2万以上。然后386电脑出现，没多久变成486, 586又叫奔腾，这个时间也是个人电脑开始进入家庭的日子。然后笨重的台式PC开始让位给便携的笔记本，芯片则越来越快，也不再用数字编号，系统从Win3.1升级到最新的Win11，而苹果的芯片从IBM转成了Intel家最后又变成了自家的Arm芯小，最早的奔腾电脑软件解压VCD都嫌吃力，现在的则是4K高清都不在话下了，如今随随便便一台笔记本的运算能力就超越了当年少年宫笨重的小型机，而价格却只有几分之一。</p>
+<p>网络是上世纪末最大的科技进步，而今的一切都是建立在网络的发展之上的。没有网络就没有现在不可或缺的外卖，没有方便的约车，没有网络就没有如今过于发达的资讯平台，没有社交媒体，没有在线流媒体。网络真的改变了一切。</p>
+<p>虽然依然不够，但科技确实重塑了我们，我们已经再也回不去过去那个没有这些科技的年代。光是这么回忆一下，都恍如隔世。未来会怎样，我不知道，但我希望科技的发展可以更快些(虽然开头才说真的要跟不上了)。毕竟，人的生命有限，但科技，无疑变相延长了我们有限的生命，更好的科技，会让人生变得更为精彩。</p>
 <p><a href="/">回主页</a></p>
                 </div>
                 <footer class="text-right">
