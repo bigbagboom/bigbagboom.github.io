@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="bbb" />
-        <meta name="description" content="换了台电脑。把里面的博客文章迁移过来时，发现又一年过去了。而去年唯一的一篇日志里的大多数内容是由chatGPTs生成的。 2023对我总的来说是虚度的一年。大概是 …" />
+        <meta name="description" content="为了阻止电脑休眠，我们可以通过使用Python编程语言来实现。下面是整个流程的步骤： 步骤 描述 步骤 1 导入所需的模块 步骤 2 禁用电脑休眠 …" />
 
 
-    <title>过好每一天 - 全是转载</title>
+    <title>python阻止电脑休眠 - 全是转载</title>
 
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -127,7 +127,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="/category/it.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             IT
@@ -169,7 +169,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="/category/life.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Life
@@ -232,20 +232,20 @@
             <div class="col-lg-9">
                 <header class="page-header">
                     <h1>
-                        <a href="/guo-hao-mei-yi-tian.html"
+                        <a href="/pythonzu-zhi-dian-nao-xiu-mian.html"
                            rel="bookmark"
-                           title="Permalink to 过好每一天">
-                            过好每一天
+                           title="Permalink to python阻止电脑休眠">
+                            python阻止电脑休眠
                         </a>
                         <small>
 <div class="post-info">
     <div class="publish-info-block">
         <small>
             <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2024-03-12T11:35:00+08:00"> 二 12 三月 2024</time>
+                <i class="fa fa-calendar padding-small"></i><time datetime="2024-12-12T16:15:00+08:00"> 四 12 十二月 2024</time>
             </span>
             <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="/category/life.html">Life</a>
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/it.html">IT</a>
             </span>
         </small>
     </div>
@@ -257,11 +257,32 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="entry-content">
-                    <p>换了台电脑。把里面的博客文章迁移过来时，发现又一年过去了。而去年唯一的一篇日志里的大多数内容是由chatGPTs生成的。</p>
-<p>2023对我总的来说是虚度的一年。大概是经历了22年的无奈，2023似乎完全没有了斗志，只想着每天浑浑噩噩度过就好。然后发现，虚度时光似乎也没什么不好。</p>
-<p>按时打卡，到点吃饭，不需要过多思考，只在乎片刻感受。看了“万神殿”后，对人类追求永生的执念不再心有戚戚，以前寄托于神话，现在则托付给科学。但几乎可以99.9999%的肯定，这所谓的科学只是一厢情愿而已。“万神殿”也好，“碳变”也罢，人类对于死亡的畏惧转化为研究科技的动力。活的更久，乃至永久，这究竟是奢望还是贪念。活那么久，究竟有没有意义？</p>
-<p>也许，人们怕的并非终有一死。人们害怕的是人生毫无意义。莫名其妙地在世间来一回，生不带来死不带去，而且不管是个人，而是整个人类，乃至宇宙本身，都有生有灭，时间尺度再久又如何？时间之外又是什么。想出这种问题的人不是太闲又是什么。</p>
-<p>过好每一天似乎是个现实的选择。人不可能永远健康，光是写这几个字就会让我沮丧，但这是现实。人必须面对现实，认清现实。如果每一天开始，你心里都有些小小期盼，在日终的时候，这份期盼还在，那就算是不错的日子。不是么？人生中充满各种磨难，无风无浪虽然平淡，但回头看的时候，那就是最好的时光。</p>
+                    <p>为了阻止电脑休眠，我们可以通过使用Python编程语言来实现。下面是整个流程的步骤：</p>
+<p>步骤  描述
+步骤 1    导入所需的模块
+步骤 2    禁用电脑休眠
+步骤 3    执行其他代码
+步骤 4    还原电脑休眠设置</p>
+<p>接下来，我们将详细说明每一步需要做什么，并提供相应的代码。</p>
+<p>步骤 1：导入所需的模块
+在Python中，我们可以使用ctypes模块来调用系统级别的功能。使用以下代码导入所需的模块：</p>
+<p>import ctypes</p>
+<p>步骤 2：禁用电脑休眠
+在这一步中，我们将使用ctypes模块中的SetThreadExecutionState函数来禁用电脑休眠。这个函数需要一个标志来指定要禁用的休眠模式。我们可以使用以下代码实现：</p>
+<h1>禁用休眠模式</h1>
+<p>ctypes.windll.kernel32.SetThreadExecutionState(0x80000002)</p>
+<p>这里，0x80000002是SetThreadExecutionState函数的标志之一，表示禁用电脑的休眠模式。</p>
+<p>步骤 3：执行其他代码
+在这一步中，您可以执行任何其他代码，例如运行您的Python程序的主要逻辑。您可以在这里编写您需要的任何其他功能代码。</p>
+<h1>执行其他代码</h1>
+<h1>TODO: 在这里添加您的其他代码</h1>
+<p>步骤 4：还原电脑休眠设置
+在完成所有需要阻止电脑休眠的操作后，我们应该还原电脑的休眠设置，以便恢复正常休眠功能。使用以下代码来实现：</p>
+<h1>恢复电脑的休眠设置</h1>
+<p>ctypes.windll.kernel32.SetThreadExecutionState(0x80000000)
+这里，0x80000000是SetThreadExecutionState函数的标志之一，表示恢复电脑的休眠设置。</p>
+<p>以上就是阻止电脑休眠的实现步骤。您可以将上述代码组合到您的Python程序中，以防止电脑在运行期间进入休眠状态。</p>
+<p>原文可以看看<a href="https://blog.51cto.com/u_16213328/7079300">这里</a>。</p>
 <p><a href="/">回主页</a></p>
                 </div>
                 <footer class="text-right">
