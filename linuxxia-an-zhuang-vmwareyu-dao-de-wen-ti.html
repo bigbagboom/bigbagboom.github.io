@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="author" content="bbb" />
-        <meta name="description" content="最近比较懒，加上颈椎一直不太舒服，干什么都没耐心。 在看的技术上有两本，一本是《The Linux Command Line 中文版》，想补一下Linux的缺。虽然一直 …" />
+        <meta name="description" content="vmware免费了，考虑到它之前属于商业付费软件，感觉应该比我一直使用的免费virtualbox更可靠些（虽然现在virtualbox也属于oracle了，名头也不小），就想着试用一下，没想到刚 …" />
 
 
-    <title>2021 001 - 全是转载</title>
+    <title>linux下安装vmware遇到的问题 - 全是转载</title>
 
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -127,7 +127,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="/category/it.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             IT
@@ -169,7 +169,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="/category/life.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Life
@@ -232,20 +232,20 @@
             <div class="col-lg-9">
                 <header class="page-header">
                     <h1>
-                        <a href="/2021-001.html"
+                        <a href="/linuxxia-an-zhuang-vmwareyu-dao-de-wen-ti.html"
                            rel="bookmark"
-                           title="Permalink to 2021 001">
-                            2021 001
+                           title="Permalink to linux下安装vmware遇到的问题">
+                            linux下安装vmware遇到的问题
                         </a>
                         <small>
 <div class="post-info">
     <div class="publish-info-block">
         <small>
             <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2021-04-07T11:30:00+08:00"> 三 07 四月 2021</time>
+                <i class="fa fa-calendar padding-small"></i><time datetime="2024-12-27T15:15:00+08:00"> 五 27 十二月 2024</time>
             </span>
             <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="/category/life.html">life</a>
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/it.html">IT</a>
             </span>
         </small>
     </div>
@@ -257,10 +257,21 @@
         <div class="row">
             <div class="col-lg-9">
                 <div class="entry-content">
-                    <p>最近比较懒，加上颈椎一直不太舒服，干什么都没耐心。</p>
-<p>在看的技术上有两本，一本是《The Linux Command Line 中文版》，想补一下Linux的缺。虽然一直用着Linux，但它现在已经跟Windows或者iOS差不多，开箱即用，用不着太多需要钻研的东西，再加上网络也太方便了，有问题也是一查就查到，所以基础的东西反而一直也没去看。这书可以帮忙补上一大块。</p>
-<p>另一本是<a href="https://book.flutterchina.club/">《Flutter实战》</a>，这书我就直接在线看了。Flutter和React很像，但打通了移动和Web开发平台，我还是很有兴趣的。虽然看到有人觉得它想要兼容所有平台反而都无法做到最好，但对我而言，能兼容各处就是最大的优势，其它问题都不是问题。</p>
-<p><a href="/">回主页</a></p>
+                    <p>vmware免费了，考虑到它之前属于商业付费软件，感觉应该比我一直使用的免费virtualbox更可靠些（虽然现在virtualbox也属于oracle了，名头也不小），就想着试用一下，没想到刚上来就遇到一个大坑。</p>
+<p>安装什么的都挺顺利，但在生成第一个虚拟机时，软件给我报了这个个错：“Could not open /dev/vmmon: ?????????. Please make sure that the kernel module `vmmon' is loaded.”然后上网查了一下，原来是因为电脑开启了secureboot，而vwware的两个模块安装所使用的key被系统拒绝了，vmware就没法正常工作。于是找了下面这个解决方案，算是搞定了。</p>
+<p>首先先安装缺少的模块：
+vmware-modconfig --console --install-all</p>
+<p>但这步其实装完了还是启动不了，具体就不说了，总之要按下面的自签个证书然后加到bios里：</p>
+<p>First line only needs to be run once:</p>
+<p>openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=VMware/"</p>
+<p>上面这句只需要执行一次，只要证书一直在的话</p>
+<p>sudo mokutil --import MOK.der</p>
+<p>Then reboot and if memory serves you will asked to confirm a change to your boot loader. Essentially you are adding this self created cert to the boot loader.</p>
+<p>sudo /usr/src/linux-headers-<code>uname -r</code>/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmmon)
+sudo /usr/src/linux-headers-<code>uname -r</code>/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmnet)
+sudo modprobe -v vmmon
+sudo modprobe -v vmnet</p>
+<p>sudo vmware-networks --start</p>
                 </div>
                 <footer class="text-right">
                     <p>- bbb</p>

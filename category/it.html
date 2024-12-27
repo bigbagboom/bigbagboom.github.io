@@ -5,11 +5,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="bbb" />
-        <meta name="description" content="最近比较懒，加上颈椎一直不太舒服，干什么都没耐心。 在看的技术上有两本，一本是《The Linux Command Line 中文版》，想补一下Linux的缺。虽然一直 …" />
+    <meta name="author" content="bbb" />
+    <meta name="keywords" content="IT" />
 
 
-    <title>2021 001 - 全是转载</title>
+    <title>IT - 全是转载</title>
 
         <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
 
@@ -119,7 +119,7 @@
                         Categories
                     </a>
                 </li>
-                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
+                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse in">
                     <li >
                         <a href="/category/computer.html">
                             <i class="fa fa-folder-open padding-small"></i>
@@ -127,7 +127,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li >
+                    <li class="active">
                         <a href="/category/it.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             IT
@@ -169,7 +169,7 @@
                             <span class="badge pull-right categorybadge">1</span>
                         </a>
                     </li>
-                    <li class="active">
+                    <li >
                         <a href="/category/life.html">
                             <i class="fa fa-folder-open padding-small"></i>
                             Life
@@ -226,49 +226,35 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
             <div class="container-fluid">
-<section id="content">
-    <article>
-        <div class="row">
-            <div class="col-lg-9">
-                <header class="page-header">
-                    <h1>
-                        <a href="/2021-001.html"
-                           rel="bookmark"
-                           title="Permalink to 2021 001">
-                            2021 001
-                        </a>
-                        <small>
-<div class="post-info">
-    <div class="publish-info-block">
-        <small>
-            <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2021-04-07T11:30:00+08:00"> 三 07 四月 2021</time>
-            </span>
-            <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="/category/life.html">life</a>
-            </span>
-        </small>
+<div class="row">
+    <div class="col-lg-9">
+        <header class="page-header">
+            <h1>Articles in IT</h1>
+        </header>
     </div>
-</div><!-- /.post-info -->                        </small>
-                    </h1>
-                </header>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="entry-content">
-                    <p>最近比较懒，加上颈椎一直不太舒服，干什么都没耐心。</p>
-<p>在看的技术上有两本，一本是《The Linux Command Line 中文版》，想补一下Linux的缺。虽然一直用着Linux，但它现在已经跟Windows或者iOS差不多，开箱即用，用不着太多需要钻研的东西，再加上网络也太方便了，有问题也是一查就查到，所以基础的东西反而一直也没去看。这书可以帮忙补上一大块。</p>
-<p>另一本是<a href="https://book.flutterchina.club/">《Flutter实战》</a>，这书我就直接在线看了。Flutter和React很像，但打通了移动和Web开发平台，我还是很有兴趣的。虽然看到有人觉得它想要兼容所有平台反而都无法做到最好，但对我而言，能兼容各处就是最大的优势，其它问题都不是问题。</p>
-<p><a href="/">回主页</a></p>
-                </div>
-                <footer class="text-right">
-                    <p>- bbb</p>
-                </footer>
-            </div>
-        </div>
-    </article>
-</section>
+</div>
+<div class="row">
+    <div class="col-lg-9">
+            <article>
+                <h4>
+                    <time datetime="2024-12-27T15:15:00+08:00"> 五 27 十二月 2024</time>
+                    <a href="/linuxxia-an-zhuang-vmwareyu-dao-de-wen-ti.html">linux下安装vmware遇到的问题</a>
+                </h4>
+            </article>
+            <article>
+                <h4>
+                    <time datetime="2024-12-12T16:15:00+08:00"> 四 12 十二月 2024</time>
+                    <a href="/pythonzu-zhi-dian-nao-xiu-mian.html">python阻止电脑休眠</a>
+                </h4>
+            </article>
+            <article>
+                <h4>
+                    <time datetime="2024-11-26T08:45:00+08:00"> 二 26 十一月 2024</time>
+                    <a href="/guan-yu-dian-nao-de-yi-xie-xin-jing-yan.html">关于电脑的一些新经验</a>
+                </h4>
+            </article>
+    </div>
+</div>
 <footer>
     <hr>
     <div class="row">
@@ -290,6 +276,24 @@
     <script src="/theme/js/bootstrap.min.js"></script>
     <!-- twitchy Script -->
     <script src="/theme/js/pelican_twitchy.min.js"></script>
+<script>
+    function FadeInOnScroll(ObjectList){
+        ObjectList.each(function(i) {
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
 
+            if( bottom_of_window > bottom_of_object ){
+                $(this).fadeTo(750,1);
+            }
+        });
+    }
+
+    articles = $("article").fadeTo(0, 0.05);
+    FadeInOnScroll(articles)
+
+    $(window).scroll(function() {
+        FadeInOnScroll(articles)
+    });
+</script>
 </body>
 </html>
