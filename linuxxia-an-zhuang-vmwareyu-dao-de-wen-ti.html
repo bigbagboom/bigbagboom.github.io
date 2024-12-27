@@ -259,8 +259,10 @@
                 <div class="entry-content">
                     <p>vmware免费了，考虑到它之前属于商业付费软件，感觉应该比我一直使用的免费virtualbox更可靠些（虽然现在virtualbox也属于oracle了，名头也不小），就想着试用一下，没想到刚上来就遇到一个大坑。</p>
 <p>安装什么的都挺顺利，但在生成第一个虚拟机时，软件给我报了这个个错：“Could not open /dev/vmmon: ?????????. Please make sure that the kernel module `vmmon' is loaded.”然后上网查了一下，原来是因为电脑开启了secureboot，而vwware的两个模块安装所使用的key被系统拒绝了，vmware就没法正常工作。于是找了下面这个解决方案，算是搞定了。</p>
-<p>首先先安装缺少的模块：
-vmware-modconfig --console --install-all</p>
+<p>首先先安装缺少的模块：</p>
+<div class="highlight"><pre><span></span><code>vmware-modconfig --console --install-all
+</code></pre></div>
+
 <p>但这步其实装完了还是启动不了，具体就不说了，总之要按下面的自签个证书然后加到bios里：</p>
 <p>First line only needs to be run once:</p>
 <div class="highlight"><pre><span></span><code>openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj &quot;/CN=VMware/&quot;
