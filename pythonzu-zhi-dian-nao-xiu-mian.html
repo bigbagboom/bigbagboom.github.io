@@ -266,21 +266,29 @@
 <p>接下来，我们将详细说明每一步需要做什么，并提供相应的代码。</p>
 <p>步骤 1：导入所需的模块
 在Python中，我们可以使用ctypes模块来调用系统级别的功能。使用以下代码导入所需的模块：</p>
-<p>import ctypes</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">ctypes</span>
+</code></pre></div>
+
 <p>步骤 2：禁用电脑休眠
 在这一步中，我们将使用ctypes模块中的SetThreadExecutionState函数来禁用电脑休眠。这个函数需要一个标志来指定要禁用的休眠模式。我们可以使用以下代码实现：</p>
-<h1>禁用休眠模式</h1>
-<p>ctypes.windll.kernel32.SetThreadExecutionState(0x80000002)</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nx">禁用休眠模式</span>
+<span class="nx">ctypes</span><span class="p">.</span><span class="nx">windll</span><span class="p">.</span><span class="nx">kernel32</span><span class="p">.</span><span class="nx">SetThreadExecutionState</span><span class="p">(</span><span class="mh">0x80000002</span><span class="p">)</span>
+</code></pre></div>
+
 <p>这里，0x80000002是SetThreadExecutionState函数的标志之一，表示禁用电脑的休眠模式。</p>
 <p>步骤 3：执行其他代码
 在这一步中，您可以执行任何其他代码，例如运行您的Python程序的主要逻辑。您可以在这里编写您需要的任何其他功能代码。</p>
-<h1>执行其他代码</h1>
-<h1>TODO: 在这里添加您的其他代码</h1>
+<div class="highlight"><pre><span></span><code># 执行其他代码
+# TODO: 在这里添加您的其他代码
+</code></pre></div>
+
 <p>步骤 4：还原电脑休眠设置
 在完成所有需要阻止电脑休眠的操作后，我们应该还原电脑的休眠设置，以便恢复正常休眠功能。使用以下代码来实现：</p>
-<h1>恢复电脑的休眠设置</h1>
-<p>ctypes.windll.kernel32.SetThreadExecutionState(0x80000000)
-这里，0x80000000是SetThreadExecutionState函数的标志之一，表示恢复电脑的休眠设置。</p>
+<div class="highlight"><pre><span></span><code><span class="err">#</span><span class="w"> </span><span class="nx">恢复电脑的休眠设置</span>
+<span class="nx">ctypes</span><span class="p">.</span><span class="nx">windll</span><span class="p">.</span><span class="nx">kernel32</span><span class="p">.</span><span class="nx">SetThreadExecutionState</span><span class="p">(</span><span class="mh">0x80000000</span><span class="p">)</span>
+</code></pre></div>
+
+<p>这里，0x80000000是SetThreadExecutionState函数的标志之一，表示恢复电脑的休眠设置。</p>
 <p>以上就是阻止电脑休眠的实现步骤。您可以将上述代码组合到您的Python程序中，以防止电脑在运行期间进入休眠状态。</p>
 <p>原文可以看看<a href="https://blog.51cto.com/u_16213328/7079300">这里</a>。</p>
 <p><a href="/">回主页</a></p>
