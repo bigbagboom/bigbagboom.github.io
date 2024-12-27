@@ -263,15 +263,21 @@
 vmware-modconfig --console --install-all</p>
 <p>但这步其实装完了还是启动不了，具体就不说了，总之要按下面的自签个证书然后加到bios里：</p>
 <p>First line only needs to be run once:</p>
-<p>openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj "/CN=VMware/"</p>
+<div class="highlight"><pre><span></span><code>openssl req -new -x509 -newkey rsa:2048 -keyout MOK.priv -outform DER -out MOK.der -nodes -days 36500 -subj &quot;/CN=VMware/&quot;
+</code></pre></div>
+
 <p>上面这句只需要执行一次，只要证书一直在的话</p>
-<p>sudo mokutil --import MOK.der</p>
+<div class="highlight"><pre><span></span><code><span class="n">sudo</span> <span class="n">mokutil</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">MOK.der</span>
+</code></pre></div>
+
 <p>Then reboot and if memory serves you will asked to confirm a change to your boot loader. Essentially you are adding this self created cert to the boot loader.</p>
-<p>sudo /usr/src/linux-headers-<code>uname -r</code>/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmmon)
-sudo /usr/src/linux-headers-<code>uname -r</code>/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmnet)
+<div class="highlight"><pre><span></span><code>sudo /usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmmon)
+sudo /usr/src/linux-headers-`uname -r`/scripts/sign-file sha256 ./MOK.priv ./MOK.der $(modinfo -n vmnet)
 sudo modprobe -v vmmon
-sudo modprobe -v vmnet</p>
-<p>sudo vmware-networks --start</p>
+sudo modprobe -v vmnet
+
+sudo vmware-networks --start
+</code></pre></div>
                 </div>
                 <footer class="text-right">
                     <p>- bbb</p>
