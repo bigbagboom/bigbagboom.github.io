@@ -1,223 +1,176 @@
-
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords" content="vpn" />
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>全是转载 - vpn</title>
+                        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/main.css" />
+                                <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="全是转载 Atom Feed" />
+        </head>
 
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="https://www.zeusinolympia.eu.org/">全是转载</a></h1>
+                        <nav><ul>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/comments.html">Comments</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/it.html">IT</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/music.html">Music</a></li>
+                        </ul></nav>
+                </header><!-- /#banner -->
 
-    <title>vpn - 全是转载</title>
+                <aside id="featured" class="body">
+                    <article>
+                        <h1 class="entry-title"><a href="https://www.zeusinolympia.eu.org/shi-yong-wireguard-da-jian-si-you-wang-luo.html">使用 WireGuard 搭建私有网络</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2021-07-15T15:42:00+08:00">
+                Published: 四 15 七月 2021
+        </abbr>
 
-        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
+                </address>
+        <p>In <a href="https://www.zeusinolympia.eu.org/category/it.html">IT</a>.</p>
+<p>tags: <a href="https://www.zeusinolympia.eu.org/tag/internet.html">Internet</a> <a href="https://www.zeusinolympia.eu.org/tag/network.html">Network</a> <a href="https://www.zeusinolympia.eu.org/tag/wireguard.html">wireguard</a> <a href="https://www.zeusinolympia.eu.org/tag/vpn.html">vpn</a> </p>        
+</footer><!-- /.post-info --><p>以下文字都是网上搬运过来的，原始链接是<a href="https://blog.gimo.me/post/setup-wireguard-vpn/">这个</a>。</p>
+<h2>起因</h2>
+<p>在上篇日记中讲到了自建 vaultwarden 密码管理软件的经过，虽然过程一帆风顺不过还是不太希望这个服务在公网上被访问到，毕竟实际上只有我一个人在使用，我得选一种方法让别人没法访问。方法其实有不少，比如配置 NGINX 让它只能接受指定 IP 地址的访问，不过不管家里也好，移动设备也好都没有固定 IP，如果要用这个方法的话，我首先得搭建一个代理服务器拿到一个固定的 IP 地址才行，与其如此我不如搭建一个私有网络，把我用到的几个设备连接到这一个虚拟网络中，这样不仅可以实现只让我访问服务的目标，还能带来其他一些好处，比如哪天开始需要去公司上班了，我可以连回家里的设备。</p>
+<p>于是想到了早就听说却一直没有用过的 WireGuard。</p>
+<!--more-->
 
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="/theme/css/pygments/native.css" rel="stylesheet" />
-    
-    <link href="/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+<h2>WireGuard</h2>
+<p>如果用谷歌搜索 WireGuard，结果里官网的标题应该很好地形容这个软件 <a href="https://www.wireguard.com/">WireGuard: fast, modern, secure VPN tunnel</a> ，基本上它分为两部分，一个内核模块和一个用户空间工具，因为我的 VPS 和我的电脑都是使用的 Arch 的 <a href="https://archlinux.org/packages/core/x86_64/linux/">linux</a> 内核，它已经自带了编译好的 WireGuard 内核模块， 所以只需要安装一个 <a href="https://archlinux.org/packages/extra/x86_64/wireguard-tools/">wireguard-tools</a> 工具即可使用。如果内核版本低于 5.6 需要额外安装对应的内核模块包(其他发行版或者其他内核用户需要各自对应)。另外按照 Arch Wiki 上的介绍，systemd-networkd 和 NetworkManager 自带了对 WireGuard 的支持，应该不安装 wireguard-tools 也能使用。</p>
+<h3>配置</h3>
+<p>实际上 WireGuard 里并没有 server，client 之类的概念区分，所有的节点都叫做 peer，每个设备在联入之前都需要生成一个私钥（公钥可以通过私钥导出），而 VPN Server 实际上算是一种特例，Arch 的 Wiki 里直接给出了这种配置方案的示例，基本稍作修改就能使用。就我而言，我是想让之前搭建的 bitwarden_rs 服务在内网中使用，我就把那台 VPS 作为 "server" 的角色来使用了。</p>
+<p>每个设备生成私钥、公钥的方式都一样，通过下面的方式可以一次生成。</p>
+<div class="highlight"><pre><span></span><code>wg<span class="w"> </span>genkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>peer_A.key<span class="w"> </span><span class="p">|</span><span class="w"> </span>wg<span class="w"> </span>pubkey<span class="w"> </span>&gt;<span class="w"> </span>peer_A.pub
+</code></pre></div>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <!-- Feeds -->
-</head>
-<body data-spy="scroll" data-target="#scrollspy">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper-small" class="twitchy-background">
-            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
-                <li>
-        <a href="" title="全是转载" class="collapsed">
-            <span class="glyphicon glyphicon-home"></span>
-        </a>
-    </li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="/archives.html" title="Recent Articles" class="collapsed">
-            <span class="glyphicon glyphicon-th-list"></span>
-        </a>
-    </li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
-                        <i class="fa fa-users padding-small"></i>
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
-                    <li>
-                        <a href="#" title="Another social link"><i class="fa fa-another-social-link-square fa-lg padding-small"></i></a>
-                    </li>
-                    <li>
-                        <a href="#" title="You can add links in your config file"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i></a>
-                    </li>
-                </ul></li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="#" title="Back to top" class="collapsed">
-            <span class="fa fa-arrow-up"></span>
-        </a>
-    </li>
-            </ul>
-        </div>
-        <div id="sidebar-wrapper" class="twitchy-background">
-            <ul id="accordion" class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="/">
-                            <span class="glyphicon glyphicon-home padding-small"></span>
-                            全是转载
-                    </a>
-                </li>
-                    <li>
-                        <a href="/archives.html">
-                            <span class="glyphicon glyphicon-th-list padding-small"></span>
-                            Recent Articles
-                        </a>
-                    </li>
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
-                        <i class="fa fa-users padding-small"></i>
-                        Contact
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
-                    <li>
-                        <a href="#" title="Another social link">
-                            <i class="fa fa-another-social-link-square fa-lg padding-small"></i>
-                            Another social link
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="You can add links in your config file">
-                            <i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i>
-                            You can add links in your config file
-                        </a>
-                    </li>
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Pages
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Categories
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
-                    <li >
-                        <a href="/category/comments.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Comments
-                            <span class="badge pull-right categorybadge">2</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/it.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            IT
-                            <span class="badge pull-right categorybadge">17</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/life.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Life
-                            <span class="badge pull-right categorybadge">8</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/music.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Music
-                            <span class="badge pull-right categorybadge">1</span>
-                        </a>
-                    </li>
-                </ul></li>
-                
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- open/close sidebar -->
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
-            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
-            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
-        </a>
-       <!-- /open/close sidebar -->
+<p>因为我使用的是 wireguard-tools 里的工具进行配置的，所以接下来就是创建配置文件，在我那台 VPS 里的配置大概如下，其实就是 “Server” 在 Interface 里指定好对应的网段，和自己的私钥即可，Peer 里则通过其他 "Client" 设备的公钥来确定身份，我在这里配置了三台设备分别是我的手机和两台电脑，其中的 AllowedIPs 指的是 “Server” 可以路由到 "Client" 的哪些 IP 段（会因此创建不同的路由表），这里我们近需要这台 Server 能访问其他设备本身即可。</p>
+<div class="highlight"><pre><span></span><code><span class="na">❯ sudo cat /etc/wireguard/wg0.conf                      </span>
+<span class="k">[Interface]</span>
+<span class="na">ListenPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">51820</span>
+<span class="na">PrivateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">“Server” 的私钥</span>
+<span class="na">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.77.1/24</span>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-<div class="row">
-    <div class="col-lg-9">
-        <header class="page-header">
-            <h1>Articles featuring vpn</h1>
-        </header>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-9">
-            <article>
-                <h4>
-                    <time datetime="2021-07-15T15:42:00+08:00"> 四 15 七月 2021</time>
-                    <a href="/shi-yong-wireguard-da-jian-si-you-wang-luo.html">使用 WireGuard 搭建私有网络</a>
-                </h4>
-            </article>
-    </div>
-</div>
-<footer>
-    <hr>
-    <div class="row">
-        <div class="col-lg-9 text-center">
-            <p><small>
-                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
-                &middot;                    &copy; 2025 bbb
-            </small></p>
-        </div>
-    </div>
-</footer>            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-    <!-- jQuery Version 1.11.2 -->
-    <script src="/theme/js/jquery-1.11.2.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/theme/js/bootstrap.min.js"></script>
-    <!-- twitchy Script -->
-    <script src="/theme/js/pelican_twitchy.min.js"></script>
-<script>
-    function FadeInOnScroll(ObjectList){
-        ObjectList.each(function(i) {
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
+<span class="k">[Peer]</span>
+<span class="c1"># Redmi K30</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">手机的公钥</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.77.51/32</span>
 
-            if( bottom_of_window > bottom_of_object ){
-                $(this).fadeTo(750,1);
-            }
-        });
-    }
+<span class="k">[Peer]</span>
+<span class="c1"># XPS 9370</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">笔记本的公钥</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.77.52/32</span>
 
-    articles = $("article").fadeTo(0, 0.05);
-    FadeInOnScroll(articles)
+<span class="k">[Peer]</span>
+<span class="c1"># ArchLinux Desktop</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">台式机的公钥</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.77.53/32</span>
+</code></pre></div>
 
-    $(window).scroll(function() {
-        FadeInOnScroll(articles)
-    });
-</script>
-</body>
+<p>而对应的我的一台电脑的配置则如下，其中加入了 <code>Endpoint</code> 和 <code>PersistentKeepalive</code> 这两个配置，因为我的笔记本并没有单独的外网 IP，所以这里需要指定“Server”的地址和端口，并保持心跳。</p>
+<div class="highlight"><pre><span></span><code><span class="k">[Interface]</span>
+<span class="na">PrivateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">笔记本的私钥</span>
+<span class="na">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.77.52/32</span>
+
+<span class="k">[Peer]</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">“Server” 的公钥</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">192.168.77.1/32</span>
+<span class="na">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">tokyo-1.gimo.me:51820</span>
+<span class="na">PersistentKeepalive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">25</span>
+</code></pre></div>
+
+<h3>启动服务</h3>
+<p>假设配置文件在 <code>/etc/wireguard/wg0.conf</code> 的话，通过下面的命令即可</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0
+</code></pre></div>
+
+<p>如果需要开机自启，则可以</p>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>wg-quick@wg0
+</code></pre></div>
+
+<h3>查看状态</h3>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>wg<span class="w"> </span><span class="c1"># 相当于 sudo wg show</span>
+</code></pre></div>
+
+<p>可以查看各个节点的配置和最后握手时间以及传输流量。</p>
+<h2>其他配置</h2>
+<h3>NGINX</h3>
+<p>为了不让 NGINX 不在公网上被访问，直接修改配置文件将监听地址绑定到 wg0 的网段上，像是下面那样</p>
+<div class="highlight"><pre><span></span><code><span class="k">listen</span><span class="w"> </span><span class="n">192.168.77.1</span><span class="p">:</span><span class="mi">80</span><span class="p">;</span>
+<span class="k">listen</span><span class="w"> </span><span class="n">192.168.77.1</span><span class="p">:</span><span class="mi">443</span><span class="w"> </span><span class="s">ssl</span><span class="w"> </span><span class="s">http2</span><span class="p">;</span>
+</code></pre></div>
+
+<h3>VPS 出入站规则</h3>
+<p>关闭之前开放的 80、443 端口，仅仅保留 ssh、mosh、和 WireGuard 的 51820 端口。</p>
+<h2>OpenWrt</h2>
+<p>到此基本就实现我的目的了，如果手机上需要访问这个服务直接打开 WireGuard 的 VPN 即可，不过考虑到因为 WFH 其实出门的机会也并不大，在家里我希望不连 VPN 就能访问，于是想在家里的路由器也用上 WireGuard，这里多亏了老婆把我的 NanoPi R2S 给带来了日本，我刷入了<a href="http://wiki.friendlyarm.com/wiki/index.php/NanoPi_R2S#Install_OS">官网最新的 ROM</a> 之后（也是巧了，它正好在半个月前更新了内核到 5.10）查看了一下，它自带了 wireguard 内核模块，一阵窃喜。</p>
+<div class="highlight"><pre><span></span><code>root@FriendlyWrt:~#<span class="w"> </span>modinfo<span class="w"> </span>wireguard
+module:<span class="w">         </span>/lib/modules/5.10.2/wireguard.ko
+alias:<span class="w">          </span>net-pf-16-proto-16-family-wireguard
+alias:<span class="w">          </span>rtnl-link-wireguard
+version:<span class="w">        </span><span class="m">1</span>.0.0
+author:<span class="w">         </span>Jason<span class="w"> </span>A.<span class="w"> </span>Donenfeld<span class="w"> </span>&lt;Jason@zx2c4.com&gt;
+description:<span class="w">    </span>WireGuard<span class="w"> </span>secure<span class="w"> </span>network<span class="w"> </span>tunnel
+license:<span class="w">        </span>GPL<span class="w"> </span>v2
+srcversion:<span class="w">     </span>F50E590B3528AEDDC1F8C5D
+depends:<span class="w">        </span>libcurve25519-generic,libblake2s,udp_tunnel,libchacha20poly1305,ip6_udp_tunnel
+intree:<span class="w">         </span>Y
+name:<span class="w">           </span>wireguard
+vermagic:<span class="w">       </span><span class="m">5</span>.10.2<span class="w"> </span>SMP<span class="w"> </span>preempt<span class="w"> </span>mod_unload<span class="w"> </span>modversions<span class="w"> </span>aarch64
+</code></pre></div>
+
+<p>不过没有自动装载这个模块，直接 <code>modprobe wireguard</code>，然后创建 <code>/etc/modules.d/wireguard</code> 让它自动装载。</p>
+<div class="highlight"><pre><span></span><code>root@FriendlyWrt:~#<span class="w"> </span>cat<span class="w"> </span>/etc/modules.d/wireguard<span class="w"> </span>
+wireguard
+</code></pre></div>
+
+<p>然后打开 <a href="https://openwrt.org/docs/guide-user/services/vpn/wireguard/start">OpenWrt 的 WireGuard 文档</a>，显示安装两个包即可  <a href="https://openwrt.org/packages/pkgdata/luci-proto-wireguard">luci-proto-wireguard</a> 和 <a href="https://openwrt.org/packages/pkgdata/luci-app-wireguard">luci-app-wireguard</a>，第一个是用于创建接口时可以选择 WireGuard 协议，第二个提供一个图形界面查看状态。然而我实际安装的时候失败了，报错找不到依赖 <code>kmod-wireguard</code>，我当然不理它，毕竟我已经知道 friendlywrt 提供的内核自带了 wireguard 内核模块，直接大胆地</p>
+<div class="highlight"><pre><span></span><code>opkg<span class="w"> </span>update
+opkg<span class="w"> </span>install<span class="w"> </span>luci-proto-wireguard<span class="w"> </span>luci-app-wireguard<span class="w"> </span>--force-depends
+</code></pre></div>
+
+<p>接下来就是用 luci 的图形界面创建一个 <code>WireGuard VPN</code> 协议的接口 wg0，配置和之前的其他手机、电脑的配置相似，然后把公钥加到”Server“的配置里。不过因为内网的其他设备需要通过这台路由器的 wg0 接口访问“Server”（这样在家里的其他设备就不用连 VPN 访问自建的 bitwarden_rs 啦）还需要配置下路由器的防火墙，主要是加一条</p>
+<div class="highlight"><pre><span></span><code>iptables -t nat -A POSTROUTING -o wg0 -j MASQUERADE
+</code></pre></div>
+
+<h2>最后</h2>
+<p>现在只要连上家里的 Wi-Fi 就可以访问我自建的 bitwarden_rs 服务了，如果偶尔外出需要使用再单独连接 VPN 即可。不过我仔细想一想我的路由器似乎性能挺过剩的，完全可以把它作为”Server“，似乎 bitwarden_rs 也有 aarch64 架构的镜像，部署在路由器上想必也不是什么难事，如果这么做的话改动一下相应的 WireGuard 配置应该也不太难。</p>
+<h2>LT;DR</h2>
+<div class="highlight"><pre><span></span><code>我：（发了一个链接给妻子）你看看我刚给你发了个链接，你是不是打不开？但是我能打开，因为我手机上连了<span class="w"> </span>VPN。
+妻：哦
+
+（数日后）
+
+我：你看看之前给你发的那个链接是不是能打开了？
+妻：嗯
+我：你把<span class="w"> </span>Wi-Fi<span class="w"> </span>断了，用流量再打开试试，是不是就打不开了？
+妻：嗯
+</code></pre></div>
+
+<h2>问题</h2>
+<p>本人在使用一段时间后发现，网络出现一些奇怪的问题，比如提交 HTML 表单的时候和服务器之间的通讯会中断，通过一番调查一般是因为默认的 MTU 值（1420）过大造成的，至于合适的 MTU 值取决于各自的网络状况，一般来说遇到这个问题把 MTU 调小即可，比如我把路由器上 wg0 的 MTU 调整成 1280 就一切顺利了。</p>
+<p><a href="/">回主页</a></p>                    </article>
+                </aside><!-- /#featured -->
+                <section id="extras" class="body">
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
+
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
+
+        </body>
 </html>

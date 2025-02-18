@@ -1,223 +1,71 @@
-
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="keywords" content="Pandoc" />
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>全是转载 - Pandoc</title>
+                        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/main.css" />
+                                <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="全是转载 Atom Feed" />
+        </head>
 
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="https://www.zeusinolympia.eu.org/">全是转载</a></h1>
+                        <nav><ul>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/comments.html">Comments</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/it.html">IT</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/music.html">Music</a></li>
+                        </ul></nav>
+                </header><!-- /#banner -->
 
-    <title>Pandoc - 全是转载</title>
+                <aside id="featured" class="body">
+                    <article>
+                        <h1 class="entry-title"><a href="https://www.zeusinolympia.eu.org/markdownzhuan-pdf.html">Markdown转pdf</a></h1>
+<footer class="post-info">
+        <abbr class="published" title="2019-05-01T14:13:00+08:00">
+                Published: 三 01 五月 2019
+        </abbr>
 
-        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
+                </address>
+        <p>In <a href="https://www.zeusinolympia.eu.org/category/it.html">IT</a>.</p>
+<p>tags: <a href="https://www.zeusinolympia.eu.org/tag/pelican.html">Pelican</a> <a href="https://www.zeusinolympia.eu.org/tag/markdown.html">Markdown</a> <a href="https://www.zeusinolympia.eu.org/tag/pandoc.html">Pandoc</a> </p>        
+</footer><!-- /.post-info --><p>之前网上下了本书，pdf格式，其中的图片全都看不到，只有一个个小方块。很大可能是制作书的人太粗心，只顾着把书生成出来，却没仔细检查一遍。好在书是开源的，在github上找到书的原始md格式后，我便想着自己重新制作一份，把那些缺失的图都补上。</p>
+<p>想法是不错，但真做起来发现坑还是不少，所以需要记录一下。</p>
+<p>第一个办法是下载chrome插件，使得md文件在chrome中能正常展现，然后使用打印功能另存为pdf文件，最后把所有打印的pdf文件拼接起来就行了。这办法笨了点，全手工，但还算是简单有效。我就是这么把书重新制作好了，挺好的，不过在我的另一台win10点呢上却碰到了问题。不管使用什么办法，md文件就是无法在chrome中显示了，而是一律作为文件下载。google了很多都不知道为什么，到现在还是没有解决，希望有朝一日会明白什么原因。</p>
+<p>第二个办法，更高级，也更复杂，而且更多坑。这就是使用LaTex来制作。<a href="https://www.latex-project.org/">LaTex</a>是什么请直接访问链接了解，这里记录一下怎么借助它把markdown文件转为pdf，我使用的软件是 <a href="https://pandoc.org/">pandoc</a> 和 xelatex, 本来安装完pandoc 就可以一条命令生成pdf了，不过它缺省的pdf引擎对于cjk这种unicode字符不太友好，所以网上通常建议使用xelatex作为pdf引擎。这就需要安装<a href="https://miktex.org/">MikTex</a>这款软件了。安装这软件需要有直接的网络连接，不能通过proxy，至少我在windows下通过代理是没有安装成功。安装完之后，使用这个命令来生成pdf，假设转换的md文件是 01.0.md。</p>
+<p>pandoc 01.0.md --pdf-engine=xelatex -o test.pdf</p>
+<p>当然，我输入完这条命令后，毫无疑问是出错了。查了很多地方才找到一个不错的解决方案：</p>
+<p>在md文件中加上这些设置：</p>
+<hr>
+<p>documentclass:
+    - ctexart</p>
+<hr>
+<p>不过，实际经验告诉我，这并不一定能解决所有问题。所以，网上有人提供了一个不错的<a href="/pm-template.latex">template</a>，我修改了一下，但仍不能保证不会出错，如果出错，就只能修改md文件了，通常是一些特殊字符需要用\来转义，但找出这些问题需要很大的耐心。</p>
+<p>命令也会相应改为：</p>
+<p>pandoc 02.0.md -o 02.0.pdf --latex-engine=xelatex --template=pm-template.latex -f markdown-raw_tex </p>
+<p><a href="/">回主页</a></p>                    </article>
+                </aside><!-- /#featured -->
+                <section id="extras" class="body">
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
 
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="/theme/css/pygments/native.css" rel="stylesheet" />
-    
-    <link href="/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <!-- Feeds -->
-</head>
-<body data-spy="scroll" data-target="#scrollspy">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper-small" class="twitchy-background">
-            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
-                <li>
-        <a href="" title="全是转载" class="collapsed">
-            <span class="glyphicon glyphicon-home"></span>
-        </a>
-    </li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="/archives.html" title="Recent Articles" class="collapsed">
-            <span class="glyphicon glyphicon-th-list"></span>
-        </a>
-    </li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
-                        <i class="fa fa-users padding-small"></i>
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
-                    <li>
-                        <a href="#" title="Another social link"><i class="fa fa-another-social-link-square fa-lg padding-small"></i></a>
-                    </li>
-                    <li>
-                        <a href="#" title="You can add links in your config file"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i></a>
-                    </li>
-                </ul></li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="#" title="Back to top" class="collapsed">
-            <span class="fa fa-arrow-up"></span>
-        </a>
-    </li>
-            </ul>
-        </div>
-        <div id="sidebar-wrapper" class="twitchy-background">
-            <ul id="accordion" class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="/">
-                            <span class="glyphicon glyphicon-home padding-small"></span>
-                            全是转载
-                    </a>
-                </li>
-                    <li>
-                        <a href="/archives.html">
-                            <span class="glyphicon glyphicon-th-list padding-small"></span>
-                            Recent Articles
-                        </a>
-                    </li>
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
-                        <i class="fa fa-users padding-small"></i>
-                        Contact
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
-                    <li>
-                        <a href="#" title="Another social link">
-                            <i class="fa fa-another-social-link-square fa-lg padding-small"></i>
-                            Another social link
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="You can add links in your config file">
-                            <i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i>
-                            You can add links in your config file
-                        </a>
-                    </li>
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Pages
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Categories
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
-                    <li >
-                        <a href="/category/comments.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Comments
-                            <span class="badge pull-right categorybadge">2</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/it.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            IT
-                            <span class="badge pull-right categorybadge">17</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/life.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Life
-                            <span class="badge pull-right categorybadge">8</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/music.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Music
-                            <span class="badge pull-right categorybadge">1</span>
-                        </a>
-                    </li>
-                </ul></li>
-                
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- open/close sidebar -->
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
-            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
-            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
-        </a>
-       <!-- /open/close sidebar -->
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-<div class="row">
-    <div class="col-lg-9">
-        <header class="page-header">
-            <h1>Articles featuring Pandoc</h1>
-        </header>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-9">
-            <article>
-                <h4>
-                    <time datetime="2019-05-01T14:13:00+08:00"> 三 01 五月 2019</time>
-                    <a href="/markdownzhuan-pdf.html">Markdown转pdf</a>
-                </h4>
-            </article>
-    </div>
-</div>
-<footer>
-    <hr>
-    <div class="row">
-        <div class="col-lg-9 text-center">
-            <p><small>
-                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
-                &middot;                    &copy; 2025 bbb
-            </small></p>
-        </div>
-    </div>
-</footer>            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-    <!-- jQuery Version 1.11.2 -->
-    <script src="/theme/js/jquery-1.11.2.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/theme/js/bootstrap.min.js"></script>
-    <!-- twitchy Script -->
-    <script src="/theme/js/pelican_twitchy.min.js"></script>
-<script>
-    function FadeInOnScroll(ObjectList){
-        ObjectList.each(function(i) {
-            var bottom_of_object = $(this).position().top + $(this).outerHeight();
-            var bottom_of_window = $(window).scrollTop() + $(window).height();
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
 
-            if( bottom_of_window > bottom_of_object ){
-                $(this).fadeTo(750,1);
-            }
-        });
-    }
-
-    articles = $("article").fadeTo(0, 0.05);
-    FadeInOnScroll(articles)
-
-    $(window).scroll(function() {
-        FadeInOnScroll(articles)
-    });
-</script>
-</body>
+        </body>
 </html>

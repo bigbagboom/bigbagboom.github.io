@@ -1,204 +1,45 @@
-
 <!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="author" content="bbb" />
-        <meta name="keywords" content="Network,Router,iptables" />
-        <meta name="description" content="看日志发现家里的路由器上偶尔会有奇怪的ip地址尝试登录，一开始我也不在意，毕竟对自己设置的密码还是有点信心的，但今天下午 …" />
+<html lang="en">
+        <head>
+                        <meta charset="utf-8" />
+                        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                        <meta name="generator" content="Pelican" />
+                        <title>利用 ipset 封禁大量 IP</title>
+                        <link rel="stylesheet" href="https://www.zeusinolympia.eu.org/theme/css/main.css" />
+                                <link href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="全是转载 Atom Feed" />
+    <meta name="description" content="看日志发现家里的路由器上偶尔会有奇怪的ip地址尝试登录，一开始我也不在意，毕竟对自己设置的密码还是有点信心的，但今天下午 …" />
+        </head>
 
-
-    <title>利用 ipset 封禁大量 IP - 全是转载</title>
-
-        <link rel="stylesheet" href="/theme/css/bootstrap.min.css" type="text/css" />
-
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="/theme/css/pygments/native.css" rel="stylesheet" />
-    
-    <link href="/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <!-- Feeds -->
-</head>
-<body data-spy="scroll" data-target="#scrollspy">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper-small" class="twitchy-background">
-            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
-                <li>
-        <a href="" title="全是转载" class="collapsed">
-            <span class="glyphicon glyphicon-home"></span>
-        </a>
-    </li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="/archives.html" title="Recent Articles" class="collapsed">
-            <span class="glyphicon glyphicon-th-list"></span>
-        </a>
-    </li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
-                        <i class="fa fa-users padding-small"></i>
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
-                    <li>
-                        <a href="#" title="Another social link"><i class="fa fa-another-social-link-square fa-lg padding-small"></i></a>
-                    </li>
-                    <li>
-                        <a href="#" title="You can add links in your config file"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i></a>
-                    </li>
-                </ul></li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="#" title="Back to top" class="collapsed">
-            <span class="fa fa-arrow-up"></span>
-        </a>
-    </li>
-            </ul>
-        </div>
-        <div id="sidebar-wrapper" class="twitchy-background">
-            <ul id="accordion" class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="/">
-                            <span class="glyphicon glyphicon-home padding-small"></span>
-                            全是转载
-                    </a>
-                </li>
-                    <li>
-                        <a href="/archives.html">
-                            <span class="glyphicon glyphicon-th-list padding-small"></span>
-                            Recent Articles
-                        </a>
-                    </li>
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
-                        <i class="fa fa-users padding-small"></i>
-                        Contact
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
-                    <li>
-                        <a href="#" title="Another social link">
-                            <i class="fa fa-another-social-link-square fa-lg padding-small"></i>
-                            Another social link
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" title="You can add links in your config file">
-                            <i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg padding-small"></i>
-                            You can add links in your config file
-                        </a>
-                    </li>
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Pages
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Categories
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
-                    <li >
-                        <a href="/category/comments.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Comments
-                            <span class="badge pull-right categorybadge">2</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="/category/it.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            IT
-                            <span class="badge pull-right categorybadge">17</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/life.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Life
-                            <span class="badge pull-right categorybadge">8</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/music.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Music
-                            <span class="badge pull-right categorybadge">1</span>
-                        </a>
-                    </li>
-                </ul></li>
-                
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- open/close sidebar -->
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
-            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
-            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
-        </a>
-       <!-- /open/close sidebar -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-<section id="content">
+        <body id="index" class="home">
+                <header id="banner" class="body">
+                        <h1><a href="https://www.zeusinolympia.eu.org/">全是转载</a></h1>
+                        <nav><ul>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/comments.html">Comments</a></li>
+                                                <li class="active"><a href="https://www.zeusinolympia.eu.org/category/it.html">IT</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/life.html">Life</a></li>
+                                                <li><a href="https://www.zeusinolympia.eu.org/category/music.html">Music</a></li>
+                        </ul></nav>
+                </header><!-- /#banner -->
+  <section id="content" class="body">
     <article>
-        <div class="row">
-            <div class="col-lg-9">
-                <header class="page-header">
-                    <h1>
-                        <a href="/li-yong-ipset-feng-jin-da-liang-ip.html"
-                           rel="bookmark"
-                           title="Permalink to 利用 ipset 封禁大量 IP">
-                            利用 ipset 封禁大量 IP
-                        </a>
-                        <small>
-<div class="post-info">
-    <div class="publish-info-block">
-        <small>
-            <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2022-02-21T15:42:00+08:00"> 一 21 二月 2022</time>
-            </span>
-            <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="/category/it.html">IT</a>
-            </span>
-            <span class="tags">
-                <i class="fa fa-tags padding-small"></i>
-                <a href="/tag/network.html">Network</a> /                 <a href="/tag/router.html">Router</a> /                 <a href="/tag/iptables.html">iptables</a>            </span>
-        </small>
-    </div>
-</div><!-- /.post-info -->                        </small>
-                    </h1>
-                </header>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="entry-content">
-                    <p>看日志发现家里的路由器上偶尔会有奇怪的ip地址尝试登录，一开始我也不在意，毕竟对自己设置的密码还是有点信心的，但今天下午突然看到某个固定ip一刻不断地反复尝试，估计是某个程序在用暴力字典破解的方式干坏事，虽然我还是有信心它找不出我的密码来，但让它那么干显得我很弱，事实上我确实很弱，对于这种攻击我是毫无反抗经验的。于是我上网搜了一下，搬到这里算是留个记录。</p>
+      <header>
+        <h1 class="entry-title">
+          <a href="https://www.zeusinolympia.eu.org/li-yong-ipset-feng-jin-da-liang-ip.html" rel="bookmark"
+             title="Permalink to 利用 ipset 封禁大量 IP">利用 ipset 封禁大量 IP</a></h1>
+      </header>
+
+      <div class="entry-content">
+<footer class="post-info">
+        <abbr class="published" title="2022-02-21T15:42:00+08:00">
+                Published: 一 21 二月 2022
+        </abbr>
+
+                <address class="vcard author">
+                        By                                 <a class="url fn" href="https://www.zeusinolympia.eu.org/author/bbb.html">bbb</a>
+                </address>
+        <p>In <a href="https://www.zeusinolympia.eu.org/category/it.html">IT</a>.</p>
+<p>tags: <a href="https://www.zeusinolympia.eu.org/tag/network.html">Network</a> <a href="https://www.zeusinolympia.eu.org/tag/router.html">Router</a> <a href="https://www.zeusinolympia.eu.org/tag/iptables.html">iptables</a> </p>        
+</footer><!-- /.post-info -->        <p>看日志发现家里的路由器上偶尔会有奇怪的ip地址尝试登录，一开始我也不在意，毕竟对自己设置的密码还是有点信心的，但今天下午突然看到某个固定ip一刻不断地反复尝试，估计是某个程序在用暴力字典破解的方式干坏事，虽然我还是有信心它找不出我的密码来，但让它那么干显得我很弱，事实上我确实很弱，对于这种攻击我是毫无反抗经验的。于是我上网搜了一下，搬到这里算是留个记录。</p>
 <p>以下又是网上搬来的，原文<a href="https://www.openwrt.pro/post-418.html">在此</a>。</p>
 <p>使用 iptables 封 IP，是一种比较简单的应对网络攻击的方式，也算是比较常见。有时候可能会封禁成千上万个IP，如果添加成千上万条规则，在一台注重性能的服务器或者本身性能就很差的设备上，这就是个问题了。ipset 就是为了避免这个问题而生的。</p>
 <p>关于 iptables，要知道这两点。</p>
@@ -300,35 +141,27 @@ ipset restore             # 根据输入内容恢复集合内容</code></pre>
 <p>上面所有的例子都是用 hash 的方式进行存储，实际上 ipset 还可以以 bitmap 或者 link 方式存储，用这两种方式创建的集合大小，是固定的。</p>
 <p>通过 man upset 和 ipset —help 可以查到更多的内容，包括各种选项，支持的类型等等。</p>
 <p><a href="/">回主页</a></p>
-                </div>
-                <footer class="text-right">
-                    <p>- bbb</p>
-                </footer>
-            </div>
-        </div>
-    </article>
-</section>
-<footer>
-    <hr>
-    <div class="row">
-        <div class="col-lg-9 text-center">
-            <p><small>
-                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
-                &middot;                    &copy; 2025 bbb
-            </small></p>
-        </div>
-    </div>
-</footer>            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-    <!-- jQuery Version 1.11.2 -->
-    <script src="/theme/js/jquery-1.11.2.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/theme/js/bootstrap.min.js"></script>
-    <!-- twitchy Script -->
-    <script src="/theme/js/pelican_twitchy.min.js"></script>
+      </div><!-- /.entry-content -->
 
-</body>
+    </article>
+  </section>
+                <section id="extras" class="body">
+                                <div class="social">
+                                        <h2>social</h2>
+                                        <ul>
+                                                        <li><a href="https://www.zeusinolympia.eu.org/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
+
+                                        </ul>
+                                </div><!-- /.social -->
+                </section><!-- /#extras -->
+
+                <footer id="contentinfo" class="body">
+                        <address id="about" class="vcard body">
+                                Proudly powered by <a rel="nofollow" href="https://getpelican.com/">Pelican</a>, which takes great advantage of <a rel="nofollow" href="https://www.python.org/">Python</a>.
+                        </address><!-- /#about -->
+
+                        <p>The theme is by <a rel="nofollow" href="https://www.smashingmagazine.com/2009/08/designing-a-html-5-layout-from-scratch/">Smashing Magazine</a>, thanks!</p>
+                </footer><!-- /#contentinfo -->
+
+        </body>
 </html>
