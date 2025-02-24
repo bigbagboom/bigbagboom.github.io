@@ -5,36 +5,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2025-02-18T15:52:56-00:00</lastmod>
+<lastmod>2025-02-24T11:08:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2025-02-18T15:52:56-00:00</lastmod>
+<lastmod>2025-02-24T11:08:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2025-02-18T15:52:56-00:00</lastmod>
+<lastmod>2025-02-24T11:08:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2025-02-18T15:52:56-00:00</lastmod>
+<lastmod>2025-02-24T11:08:34-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2025-02-18T15:52:56-00:00</lastmod>
+<lastmod>2025-02-24T11:08:34-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/shi-yong-ddzhi-ling-bei-fen-he-hui-fu.html</loc>
+<lastmod>2025-02-24T11:35:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -243,7 +250,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/category/it.html</loc>
-<lastmod>2025-02-18T11:35:00+08:06</lastmod>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -263,29 +270,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>/tag/linux.html</loc>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/macos.html</loc>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>/tag/r2s.html</loc>
-<lastmod>2025-02-18T11:35:00+08:06</lastmod>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/router.html</loc>
-<lastmod>2025-02-18T11:35:00+08:06</lastmod>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/ruan-lu-you.html</loc>
-<lastmod>2025-02-18T11:35:00+08:06</lastmod>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tag/openwrt.html</loc>
-<lastmod>2025-02-18T11:35:00+08:06</lastmod>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -320,13 +341,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/tag/mac.html</loc>
-<lastmod>2024-11-26T08:45:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/linux.html</loc>
 <lastmod>2024-11-26T08:45:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -621,7 +635,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/bbb.html</loc>
-<lastmod>2025-02-18T11:35:00+08:06</lastmod>
+<lastmod>2025-02-24T11:35:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
