@@ -13,13 +13,13 @@
 
         <meta name="author" content="bbb" />
         <meta name="keywords" content="Linux,PVE,OpenWRT" />
-        <meta name="description" content="折腾完我的那台R2S，我开始把目光放到性能更强的小主机上，但在我出手之前，我想先了解一下自己是否有驾驭的能力，于 …" />
+        <meta name="description" content="折腾完我那台R2S，我开始把目光放到性能更强的小主机上，但在出手之前，我想先了解一下自己是否有驾驭它的能力，于是 …" />
 
         <meta property="og:site_name" content="全是转载" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="记录一次双重NAT尝试"/>
         <meta property="og:url" content="/ji-lu-yi-ci-shuang-zhong-natchang-shi.html"/>
-        <meta property="og:description" content="折腾完我的那台R2S，我开始把目光放到性能更强的小主机上，但在我出手之前，我想先了解一下自己是否有驾驭的能力，于 …"/>
+        <meta property="og:description" content="折腾完我那台R2S，我开始把目光放到性能更强的小主机上，但在出手之前，我想先了解一下自己是否有驾驭它的能力，于是 …"/>
         <meta property="article:published_time" content="2025-03-04" />
             <meta property="article:section" content="IT" />
             <meta property="article:tag" content="Linux" />
@@ -116,8 +116,8 @@
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>折腾完我的那台R2S，我开始把目光放到性能更强的小主机上，但在我出手之前，我想先了解一下自己是否有驾驭的能力，于是，我盯上了又一个我此前一无所知的系统:PVE。其实PVE不是唯一的虚拟化平台，但另一个竞争者ESXi是一款商业画上产品，换句话说就是要钱的，而PVE则号称免费开源，就冲这一点，不可能不选它。</p>
-<p>PVE全称是Proxmox VE，底层据说就是一个Debian(Linux)，由于我还没有可用的小主机，所以我准备安装在虚拟机上尝试，这也就是为什么会出现双重NAT的问题。因为我在一个物理宿主机上先安装了虚拟机管理软件VMWare Workstation，然后再在其中安装PVE，而PVE中再开新的虚拟机安装特定服务的系统，比如OpenWRT。这样套娃的结果就是物理宿主机和OpenWRT虚拟机隔着2层虚拟机管理平台，所以就必须双重NAT才能打通。</p>
+                <p>折腾完我那台R2S，我开始把目光放到性能更强的小主机上，但在出手之前，我想先了解一下自己是否有驾驭它的能力，于是，我盯上了又一个此前一无所知的系统: PVE。其实PVE不是唯一的虚拟化平台系统，但另一个主要竞争者ESXi是一款商业化产品，换句话说，就是要钱的，而PVE则号称免费开源，冲着这一点，就不可能不选它。</p>
+<p>PVE全称是Proxmox VE，底层据说就是一个Debian(Linux)，由于我还没有可用的小主机，所以我准备先把它安装在虚拟机上尝试，这也是为什么会出现双重NAT的问题。因为我在一个物理宿主机上先安装了虚拟机管理软件VMWare Workstation，然后再在其中安装PVE，而PVE中再开新的虚拟机去安装特定服务的系统，比如OpenWRT。这样套娃的结果就是物理宿主机和OpenWRT虚拟机隔着2层虚拟机管理平台，所以就必须双重NAT才能打通。</p>
 <p>安装什么的都不算复杂，唯独双重NAT让我费了不少时间查方案，没办法，主要是我不熟iptable，但最终还是要用到这个网络命令来搞定一切。</p>
 <p>首先，PVE到外层物理机隔者一层VMWare，这里VMWare可以直接图形界面上给虚拟网卡设为NAT，然后从PVE连到Internet就通了，但反过来还不行，这时也可以用iptables来搞定，但我采用的是用VMWare的端口映射功能把虚拟机的内部端口给映射出来，要什么映射什么，这样，除了需要的端口，其他都在NAT后面，也不担心有什么非法访问。</p>
 <p>然后就是重点了，在PVE中需要用以下两条iptables使得内部网络可以访问外面，同时，把内部需要的端口暴露出来，让外部也能访问内部。</p>
