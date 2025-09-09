@@ -164,14 +164,16 @@ qemu-system-x86_64 -smp 1 -m 1G -drive file=debian-10-backports-nocloud-amd64-20
 </code></pre></div>
 
 <p>这些都改完之后再次测试，速度果然上去很多，提高到差不多230Mbits/sec，播放1080p是完全不卡了，但放高码率4K视频依然会卡，其实光从230Mbits/sec这个数值来看似乎播放4K不应该再卡，但这次我反过来测了一下，因为Alist事实上是从虚拟机里提供服务，所以虚拟机是服务端，将虚拟机设为iperf3服务端后从r2s用iperf3连接虚拟机映射出的端口，这次数值从270Mbits/sec直接降到了110Mbits/sec左右，也就是相当于百兆网络的水平。考虑到我的服务首先要从网络共享文件夹获取到视频服务，然后再对外提供视频流，网络带宽还需要再减半才行，再加上些其他损耗，播放高码率4K继续卡就不奇怪了。</p>
-<p>搞半天还是没最终解决，十倍的网络性能提升依然不够用，说实话是有点让人气馁的。继续问AI，这次AI提到使用qemu虚拟机要提高性能必须确保启用kvm。然而，使用AI给出的查看系统是否已启用kvm的命令lsmod|grep kvm，r76s给出的却是一片空白，我记得r76s当初的商品介绍中是提到支持kvm的，但我就是找不到任何开启或证明它支持kvm的地方。僵持了一段时间之后，我无意中在网上看到一条新的qemu命令行使用的参数，结合了-cpu和-accel，我之前使用的-cpu参数是指定了某款具体的arm型号，但在网上的那个回答中提到只需要指定为host并将accel设定为kvm就行，于是，我把完整的qemu启动命令改成下面这样：
-    qemu-system-aarch64 -M virt -cpu host -accel kvm -smp 1 -m 1G -nographic \
-    -bios QEMU_EFI.fd \
-    -drive file=debian-10-backports-nocloud-arm64-20240703-1797.qcow2,if=virtio \
-    -netdev bridge,br=br-lan,id=br0 \
-    -device virtio-net-pci,mq=on,vectors=2,netdev=br0 </p>
-<p>是的，我不光改写了-cpu的参数，增加-accel，还把内核数和内存都改小了，事实证明，只要网络性能提升，虚拟机并不需要太高的硬件资源就完全能胜任我要求它的工作。经过这条启动命令执行后的虚拟机，iperf3测试速度直接达到了733Mbits/sec，这还是以虚拟机作为服务端的速度。反过来，则基本能跑满宿主机的带宽，网络性能瓶颈再也不存在了。</p>
-<p>至此，r76s终于满足了全部软件使用需求，有望在不久的将来，让我的r2s真正解甲归田。</p>
+<p>搞半天还是没最终解决，十倍的网络性能提升依然不够用，说实话是有点让人气馁的。继续问AI，这次AI提到使用qemu虚拟机要提高性能必须确保启用kvm。然而，使用AI给出的查看系统是否已启用kvm的命令lsmod|grep kvm，r76s给出的却是一片空白，我记得r76s当初的商品介绍中是提到支持kvm的，但我就是找不到任何开启或证明它支持kvm的地方。僵持了一段时间之后，我无意中在网上看到一条新的qemu命令行使用的参数，结合了-cpu和-accel，我之前使用的-cpu参数是指定了某款具体的arm型号，但在网上的那个回答中提到只需要指定为host并将accel设定为kvm就行，于是，我把完整的qemu启动命令改成下面这样：</p>
+<div class="highlight"><pre><span></span><code>qemu-system-aarch64 -M virt -cpu host -accel kvm -smp 1 -m 1G -nographic \
+-bios QEMU_EFI.fd \
+-drive file=debian-10-backports-nocloud-arm64-20240703-1797.qcow2,if=virtio \
+-netdev bridge,br=br-lan,id=br0 \
+-device virtio-net-pci,mq=on,vectors=2,netdev=br0
+</code></pre></div>
+
+<p>是的，我不光改写了-cpu的参数，增加-accel，还把内核数和内存都改小了，事实证明，只要网络性能提升，虚拟机并不需要太高的硬件资源就完全能胜任我要求它的工作。经过这条启动命令执行后的虚拟机，iperf3测试速度直接达到了733Mbits/sec，这还是以虚拟机作为服务端的速度。反过来，则基本能跑满宿主机的带宽，网络性能瓶颈再也不存在了。再次用视频服务测试，但这次换成了openlist，据说是Alist卖身之后失去了用户的信任，不管如何，播放高码率的4K视频是再也不卡了。大成功。</p>
+<p>至此，历经近一个月的折腾，期间经历无数尝试和失败，如今的r76s终于满足了我全部软件的使用需求。终于有望在不久的将来，让我的r2s真正解甲归田。</p>
 <p><a href="/">回主页</a></p>
             </div>
             <!-- /.entry-content -->
