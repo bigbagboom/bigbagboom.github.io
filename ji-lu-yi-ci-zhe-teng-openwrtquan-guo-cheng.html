@@ -162,8 +162,8 @@
 <span class="w"> </span><span class="nx">dns</span><span class="o">-</span><span class="nx">nameservers</span><span class="w"> </span><span class="m m-Double">223.5.5.5</span>
 </code></pre></div>
 
-<p>这些都改完之后再次测试，速度果然上去很多，提高到差不多230Mbits/sec，播放1080p是完全不卡了，但放高码率4K视频依然会卡，其实光从230Mbits/sec这个数值来看似乎播放4K不应该再卡，但这次我反过来测了一下，因为Alist事实上是从虚拟机里提供服务，所以虚拟机是服务端，将虚拟机设为iperf3服务端后从r2s用iperf3连接虚拟机映射出的端口，这次数值从230Mbits/sec直接降到了110Mbits/sec左右，也就是相当于百兆网络的水平。考虑到我的服务首先要从网络共享文件夹获取到视频服务，然后再对外提供视频流，网络带宽还需要再减半才行，再加上些其他损耗，播放高码率4K继续卡就不奇怪了。</p>
-<p>搞半天还是没最终解决，十倍的网络性能提升依然不够用，说实话是有点让人气馁的。继续问AI，这次AI提到使用qemu虚拟机要提高性能必须确保启用kvm。然而，使用AI给出的查看系统是否已启用kvm的命令lsmod|grep kvm，r76s给出的却是一片空白，我记得r76s当初的商品介绍中是提到支持kvm的，但我就是找不到任何开启或证明它支持kvm的地方。僵持了一段时间之后，我无意中在网上看到一条新的qemu命令行使用的参数，结合了-cpu和-accel，我之前使用的-cpu参数是指定了某款具体的arm型号，但在网上的那个回答中提到只需要指定为host并将accel设定为kvm就行，于是，我把完整的qemu启动命令改成下面这样：</p>
+<p>这些都改完之后再次测试，速度果然上去很多，提高到差不多230Mbits/sec，播放1080p是完全不卡了，但放高码率4K视频依然会卡，其实光从230Mbits/sec这个数值来看似乎播放4K不应该再卡，但这次我反过来测了一下，因为Alist事实上是从虚拟机里提供服务，所以虚拟机是服务端，将虚拟机设为iperf3服务端后从r2s用iperf3连接虚拟机映射出的端口，这次数值从230Mbits/sec直接降到了110Mbits/sec左右，也就是相当于百兆网络的水平。考虑到我的服务首先要从网络共享文件夹获取到视频文件并读取，然后再对外提供视频流，网络带宽还需要再减半才行，再加上些其他损耗，播放高码率4K继续卡就不奇怪了。</p>
+<p>搞半天还是没最终解决，十倍的网络性能提升依然不够用，说实话是有点让人气馁的。继续问AI，这次AI提到使用qemu虚拟机要提高性能必须确保openwrt启用了kvm。然而，使用AI给出的查看系统是否已启用kvm的命令 lsmod|grep kvm，r76s的输出却是一片空白，感觉像是系统并不支持kvm，我记得r76s当初的商品介绍中是提到能够支持kvm的，我下载的第三方编译的openwrt也说系统编译了支持kvm的模块，但我始终找不到任何开启或证明它支持kvm的地方。僵持了一段时间之后，我无意中在网上看到一条答复qemu问题的帖子提到qemu命令行使用的参数，结合-cpu和-accel解决了原提问者的问题，我之前使用的-cpu参数是指定了某款具体的arm型号，但在网上的那个回答中提到只需要将cpu指定为host并将accel设定为kvm就行，于是，我把完整的qemu启动命令改成下面这样：</p>
 <div class="highlight"><pre><span></span><code>qemu-system-aarch64 -M virt -cpu host -accel kvm -smp 1 -m 1G -nographic \
 -bios QEMU_EFI.fd \
 -drive file=debian-10-backports-nocloud-arm64-20240703-1797.qcow2,if=virtio \
