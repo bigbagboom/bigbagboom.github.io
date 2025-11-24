@@ -5,36 +5,43 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/</loc>
-<lastmod>2025-10-28T17:02:33-00:00</lastmod>
+<lastmod>2025-11-24T11:43:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/tags.html</loc>
-<lastmod>2025-10-28T17:02:33-00:00</lastmod>
+<lastmod>2025-11-24T11:43:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/categories.html</loc>
-<lastmod>2025-10-28T17:02:33-00:00</lastmod>
+<lastmod>2025-11-24T11:43:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/authors.html</loc>
-<lastmod>2025-10-28T17:02:33-00:00</lastmod>
+<lastmod>2025-11-24T11:43:18-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>/archives.html</loc>
-<lastmod>2025-10-28T17:02:33-00:00</lastmod>
+<lastmod>2025-11-24T11:43:18-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/wen-aishi-yao-shi-ji-yin-tu-bian.html</loc>
+<lastmod>2025-11-24T12:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -312,6 +319,34 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
+<loc>/category/science.html</loc>
+<lastmod>2025-11-24T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/ai.html</loc>
+<lastmod>2025-11-24T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/ke-xue.html</loc>
+<lastmod>2025-11-24T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>/tag/sheng-wu.html</loc>
+<lastmod>2025-11-24T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>/tag/windows.html</loc>
 <lastmod>2025-10-28T16:55:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -370,13 +405,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>/tag/apple-airport-time-capsule.html</loc>
 <lastmod>2025-09-09T15:35:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>/tag/ai.html</loc>
-<lastmod>2025-05-22T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -761,7 +789,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>/author/bbb.html</loc>
-<lastmod>2025-10-28T16:55:00+08:06</lastmod>
+<lastmod>2025-11-24T12:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
